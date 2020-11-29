@@ -9499,10 +9499,10 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 </classes>
 <parts>
 <part name="JP2" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" deviceset="PINHD-1X20" device="" package3d_urn="urn:adsk.eagle:package:22441/2"/>
-<part name="SW1" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" deviceset="SWITCH-OMRON-B3J-1LED" device="" package3d_urn="urn:adsk.eagle:package:16346131/2"/>
-<part name="SW2" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" deviceset="SWITCH-OMRON-B3J-1LED" device="" package3d_urn="urn:adsk.eagle:package:16346131/2"/>
-<part name="SW3" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" deviceset="SWITCH-OMRON-B3J-1LED" device="" package3d_urn="urn:adsk.eagle:package:16346131/2"/>
-<part name="SW4" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" deviceset="SWITCH-OMRON-B3J-1LED" device="" package3d_urn="urn:adsk.eagle:package:16346131/2"/>
+<part name="SW1" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" deviceset="SWITCH-OMRON-B3J-1LED" device="" package3d_urn="urn:adsk.eagle:package:16346131/2" value="Omron B3J-2100"/>
+<part name="SW2" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" deviceset="SWITCH-OMRON-B3J-1LED" device="" package3d_urn="urn:adsk.eagle:package:16346131/2" value="Omron B3J-2100"/>
+<part name="SW3" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" deviceset="SWITCH-OMRON-B3J-1LED" device="" package3d_urn="urn:adsk.eagle:package:16346131/2" value="Omron B3J-2100"/>
+<part name="SW4" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" deviceset="SWITCH-OMRON-B3J-1LED" device="" package3d_urn="urn:adsk.eagle:package:16346131/2" value="Omron B3J-2100"/>
 <part name="CNANO1" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" deviceset="CURIOSITYNANO4809" device="CASTELLATED" package3d_urn="urn:adsk.eagle:package:15461731/6"/>
 <part name="VR1" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" deviceset="OKI-78SR" device="" package3d_urn="urn:adsk.eagle:package:23154151/4" value="OKI-78SR-5"/>
 <part name="C1" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" deviceset="C-US" device="C1210K" package3d_urn="urn:adsk.eagle:package:4021329/2" value="10uF"/>
@@ -9530,7 +9530,7 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <part name="R1" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:4021199/4" value="1K"/>
 <part name="GND13" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" deviceset="GND" device=""/>
 <part name="EN1" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" deviceset="ENC-BOURNES-PEC11L" device="" package3d_urn="urn:adsk.eagle:package:16443896/3" value="PEC11L-4120F-S0020"/>
-<part name="JP3" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" deviceset="PINHD-1X2" device="MOLEX-02-VERT" package3d_urn="urn:adsk.eagle:package:16444314/3" value="Molex 0022292021"/>
+<part name="JP3" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" deviceset="PINHD-1X2" device="MOLEX-02-VERT" package3d_urn="urn:adsk.eagle:package:16444314/3" value="Molex 22112022"/>
 <part name="U3" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" deviceset="ISO7421DR" device="TI-SOIC-D8" package3d_urn="urn:adsk.eagle:package:16444440/1" value="ISO7421DR"/>
 <part name="U1" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" deviceset="DEBOUNCER-MC14490DWG" device="SOIC-16-WB" package3d_urn="urn:adsk.eagle:package:16444518/1" value="MC14490DWG"/>
 <part name="C5" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" deviceset="C-US" device="C0805" package3d_urn="urn:adsk.eagle:package:4021265/3" value="0.1uF"/>
@@ -9632,6 +9632,8 @@ LN2 valves.</text>
 <wire x1="304.8" y1="233.68" x2="304.8" y2="180.34" width="0.254" layer="250"/>
 <wire x1="304.8" y1="180.34" x2="243.84" y2="180.34" width="0.254" layer="250"/>
 <wire x1="243.84" y1="180.34" x2="243.84" y2="233.68" width="0.254" layer="250"/>
+<text x="7.62" y="187.96" size="1.778" layer="250">Rewire for RJ11 6-pin breakout</text>
+<text x="7.62" y="86.36" size="1.778" layer="250">Switch to stand-up version</text>
 </plain>
 <instances>
 <instance part="JP2" gate="A" x="50.8" y="134.62" smashed="yes">

@@ -162,7 +162,7 @@
 <layer number="255" name="routoute" color="7" fill="1" visible="no" active="yes"/>
 </layers>
 <board>
-<fusionsync huburn="a.cGVyc29uYWw6dWUyZDgyNjcx" projecturn="a.cGVyc29uYWw6dWUyZDgyNjcxIzIwMTgxMjIwMTY2NDc1MjMx" f3durn="urn:adsk.wipprod:dm.lineage:SILO-arIReG6jrEVXBfZUQ" pcbguid="" lastpulledtime="" lastsyncedchangeguid="" latestrevisionid="6606f3e2-5618-4ac4-92af-d061eca6e09a" lastsyncedrevisionid="6606f3e2-5618-4ac4-92af-d061eca6e09a" lastboardhashguid="1ecfd872-24d1-24d5-ebae-e002c87dfb3c" lastpushedtime="2020-11-28T19:47:53Z" linktopcb3d="true"/>
+<fusionsync huburn="a.cGVyc29uYWw6dWUyZDgyNjcx" projecturn="a.cGVyc29uYWw6dWUyZDgyNjcxIzIwMTgxMjIwMTY2NDc1MjMx" f3durn="urn:adsk.wipprod:dm.lineage:SILO-arIReG6jrEVXBfZUQ" pcbguid="" lastpulledtime="" lastsyncedchangeguid="" latestrevisionid="c75e6869-61d3-43c9-a190-dfea5258d75d" lastsyncedrevisionid="c75e6869-61d3-43c9-a190-dfea5258d75d" lastboardhashguid="ad88a193-6fe9-21f0-3207-4f13c34f1b2d" lastpushedtime="2020-11-29T18:47:29Z" linktopcb3d="true"/>
 <plain>
 <wire x1="0" y1="0" x2="17.78" y2="0" width="0" layer="20"/>
 <wire x1="17.78" y1="0" x2="17.78" y2="17.78" width="0" layer="20"/>
@@ -177,12 +177,12 @@
 <library name="AUmlib" urn="urn:adsk.eagle:library:9166017">
 <description>2020-09-14</description>
 <packages>
-<package name="RJ11-6-PIN" urn="urn:adsk.eagle:footprint:25057201/3" library_version="368">
-<pad name="1" x="-3.175" y="4.22" drill="0.9" shape="square"/>
+<package name="RJ11-6-PIN" urn="urn:adsk.eagle:footprint:25057201/4" library_version="370">
+<pad name="1" x="-3.175" y="4.42" drill="0.9" shape="square"/>
 <pad name="2" x="-1.905" y="1.88" drill="0.9"/>
-<pad name="3" x="-0.635" y="4.22" drill="0.9"/>
+<pad name="3" x="-0.635" y="4.42" drill="0.9"/>
 <pad name="4" x="0.635" y="1.88" drill="0.9"/>
-<pad name="5" x="1.905" y="4.22" drill="0.9"/>
+<pad name="5" x="1.905" y="4.42" drill="0.9"/>
 <pad name="6" x="3.175" y="1.88" drill="0.9"/>
 <pad name="7" x="6.55" y="-4.75" drill="0.9"/>
 <pad name="8" x="4.01" y="-4.75" drill="0.9"/>
@@ -197,28 +197,40 @@
 <wire x1="8.5" y1="7.5" x2="-8.5" y2="7.5" width="0.127" layer="21"/>
 <wire x1="-8.5" y1="7.5" x2="-8.5" y2="-7.5" width="0.127" layer="21"/>
 </package>
-<package name="MOLEX-04-VERT" urn="urn:adsk.eagle:footprint:16461090/2" library_version="368">
-<pad name="1" x="-3.81" y="0" drill="1.1938" shape="square"/>
-<pad name="2" x="-1.27" y="0" drill="1.1938"/>
-<pad name="3" x="1.27" y="0" drill="1.1938"/>
-<pad name="4" x="3.81" y="0" drill="1.1938"/>
-<wire x1="-5.1" y1="-2.9" x2="-5.1" y2="2.9" width="0.127" layer="21"/>
-<wire x1="-5.1" y1="2.9" x2="5.1" y2="2.9" width="0.127" layer="21"/>
-<wire x1="5.1" y1="2.9" x2="5.1" y2="-2.9" width="0.127" layer="21"/>
-<wire x1="5.1" y1="-2.9" x2="-5.1" y2="-2.9" width="0.127" layer="21"/>
-<text x="-5.08" y="3.81" size="1.27" layer="25">&gt;NAME</text>
-<text x="-5.08" y="-5.08" size="1.27" layer="27">&gt;VALUE</text>
+<package name="1X04RA-MOLEX-22122044" urn="urn:adsk.eagle:footprint:25075310/1" library_version="373">
+<pad name="3" x="0" y="3.81" drill="1.016" rot="R180"/>
+<pad name="2" x="-2.54" y="3.81" drill="1.016"/>
+<pad name="1" x="-5.08" y="3.81" drill="1.016" shape="square" rot="R180"/>
+<pad name="4" x="2.54" y="3.81" drill="1.016" rot="R180"/>
+<wire x1="-6.35" y1="1.27" x2="3.81" y2="1.27" width="0.127" layer="21"/>
+<wire x1="3.81" y1="1.27" x2="3.81" y2="-2.159" width="0.127" layer="21"/>
+<wire x1="3.81" y1="-2.159" x2="-6.35" y2="-2.159" width="0.127" layer="21"/>
+<wire x1="-6.35" y1="-2.159" x2="-6.35" y2="1.27" width="0.127" layer="21"/>
+<wire x1="-5.08" y1="-9.144" x2="-5.08" y2="-2.794" width="0.6096" layer="21"/>
+<wire x1="0" y1="-9.144" x2="0" y2="-2.794" width="0.6096" layer="21"/>
+<wire x1="-2.54" y1="-9.144" x2="-2.54" y2="-2.921" width="0.6096" layer="21"/>
+<wire x1="2.54" y1="-9.144" x2="2.54" y2="-2.794" width="0.6096" layer="21"/>
+<text x="-12.7" y="-1.27" size="1.016" layer="25" font="vector">&gt;NAME</text>
+<text x="-12.7" y="-3.81" size="1.016" layer="27" font="vector">&gt;VALUE</text>
+<rectangle x1="-5.461" y1="1.27" x2="-4.699" y2="2.794" layer="21"/>
+<rectangle x1="-2.921" y1="1.27" x2="-2.159" y2="2.794" layer="21"/>
+<rectangle x1="-0.381" y1="1.27" x2="0.381" y2="2.794" layer="21"/>
+<rectangle x1="-5.3848" y1="-2.7686" x2="-4.7752" y2="-2.2098" layer="21"/>
+<rectangle x1="-2.8448" y1="-2.8702" x2="-2.2352" y2="-2.2098" layer="21"/>
+<rectangle x1="-0.3048" y1="-2.7686" x2="0.3048" y2="-2.2098" layer="21"/>
+<rectangle x1="2.159" y1="1.27" x2="2.921" y2="2.794" layer="21"/>
+<rectangle x1="2.2352" y1="-2.7686" x2="2.8448" y2="-2.2098" layer="21"/>
 </package>
 </packages>
 <packages3d>
-<package3d name="RJ11-6-PIN" urn="urn:adsk.eagle:package:25057203/4" type="model" library_version="368">
+<package3d name="RJ11-6-PIN" urn="urn:adsk.eagle:package:25057203/5" type="model" library_version="370">
 <packageinstances>
 <packageinstance name="RJ11-6-PIN"/>
 </packageinstances>
 </package3d>
-<package3d name="MOLEX-04-VERT" urn="urn:adsk.eagle:package:16461091/3" type="model" library_version="368">
+<package3d name="1X04RA-MOLEX-22122044" urn="urn:adsk.eagle:package:25075311/2" type="model" library_version="373">
 <packageinstances>
-<packageinstance name="MOLEX-04-VERT"/>
+<packageinstance name="1X04RA-MOLEX-22122044"/>
 </packageinstances>
 </package3d>
 </packages3d>
@@ -410,41 +422,43 @@ Note, that not all DRC settings must be set by the manufacturer. Several can be 
 </pass>
 </autorouter>
 <elements>
-<element name="J1" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" package="RJ11-6-PIN" package3d_urn="urn:adsk.eagle:package:25057203/4" value="Amphenol MRJR-3460-0F" x="8.89" y="12.065" smashed="yes">
+<element name="J2" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" package="RJ11-6-PIN" package3d_urn="urn:adsk.eagle:package:25057203/5" value="Amphenol MRJR-3460-0F" x="8.89" y="12.065" smashed="yes">
 <attribute name="NAME" x="2.585" y="15.68" size="1.016" layer="25"/>
 </element>
-<element name="JP1" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" package="MOLEX-04-VERT" package3d_urn="urn:adsk.eagle:package:16461091/3" value="MOLEX 22112042" x="8.89" y="3.175" smashed="yes" rot="MR0">
-<attribute name="NAME" x="10.16" y="1.27" size="1.016" layer="26" rot="MR0"/>
+<element name="J1" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" package="1X04RA-MOLEX-22122044" package3d_urn="urn:adsk.eagle:package:25075311/2" value="Molex 22122044" x="13.335" y="-5.08" smashed="yes">
+<attribute name="NAME" x="0.635" y="-6.35" size="1.016" layer="25" font="vector"/>
+<attribute name="VALUE" x="0.635" y="-8.89" size="1.016" layer="27" font="vector"/>
 </element>
 </elements>
 <signals>
 <signal name="TX">
-<contactref element="JP1" pad="4"/>
-<contactref element="J1" pad="2"/>
+<contactref element="J2" pad="2"/>
 <wire x1="6.985" y1="13.945" x2="6.985" y2="5.08" width="0.254" layer="1"/>
-<wire x1="6.985" y1="5.08" x2="5.08" y2="3.175" width="0.254" layer="1"/>
+<contactref element="J1" pad="1"/>
+<wire x1="8.255" y1="-1.27" x2="6.985" y2="5.08" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="GND">
-<contactref element="JP1" pad="3"/>
-<contactref element="J1" pad="3"/>
+<contactref element="J2" pad="3"/>
 <polygon width="0.1524" layer="16">
 <vertex x="0" y="0"/>
 <vertex x="17.78" y="0"/>
 <vertex x="17.78" y="17.78"/>
 <vertex x="0" y="17.78"/>
 </polygon>
+<contactref element="J1" pad="2"/>
+<wire x1="8.255" y1="16.485" x2="10.795" y2="-1.27" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="RX">
-<contactref element="JP1" pad="2"/>
-<contactref element="J1" pad="4"/>
+<contactref element="J2" pad="4"/>
 <wire x1="9.525" y1="13.945" x2="9.525" y2="3.81" width="0.254" layer="1"/>
-<wire x1="9.525" y1="3.81" x2="10.16" y2="3.175" width="0.254" layer="1"/>
+<contactref element="J1" pad="3"/>
+<wire x1="9.525" y1="3.81" x2="13.335" y2="-1.27" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="VCC">
-<contactref element="JP1" pad="1"/>
-<contactref element="J1" pad="5"/>
-<wire x1="10.795" y1="16.285" x2="10.795" y2="5.08" width="0.508" layer="1"/>
-<wire x1="10.795" y1="5.08" x2="12.7" y2="3.175" width="0.508" layer="1"/>
+<contactref element="J2" pad="5"/>
+<wire x1="10.795" y1="16.485" x2="10.795" y2="5.08" width="0.508" layer="1"/>
+<contactref element="J1" pad="4"/>
+<wire x1="15.875" y1="-1.27" x2="10.795" y2="5.08" width="0" layer="19" extent="1-1"/>
 </signal>
 </signals>
 <mfgpreviewcolors>
