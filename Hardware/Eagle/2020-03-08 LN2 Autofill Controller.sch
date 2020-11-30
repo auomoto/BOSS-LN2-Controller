@@ -1473,24 +1473,6 @@ Metric Code Size 3225</description>
 <text x="-5.08" y="3.81" size="1.27" layer="25">&gt;NAME</text>
 <text x="-5.08" y="-5.08" size="1.27" layer="27">&gt;VALUE</text>
 </package>
-<package name="1X01" urn="urn:adsk.eagle:footprint:22382/1" library_version="50">
-<description>&lt;b&gt;PIN HEADER&lt;/b&gt;</description>
-<wire x1="-0.635" y1="1.27" x2="0.635" y2="1.27" width="0.1524" layer="21"/>
-<wire x1="0.635" y1="1.27" x2="1.27" y2="0.635" width="0.1524" layer="21"/>
-<wire x1="1.27" y1="0.635" x2="1.27" y2="-0.635" width="0.1524" layer="21"/>
-<wire x1="1.27" y1="-0.635" x2="0.635" y2="-1.27" width="0.1524" layer="21"/>
-<wire x1="-1.27" y1="0.635" x2="-1.27" y2="-0.635" width="0.1524" layer="21"/>
-<wire x1="-0.635" y1="1.27" x2="-1.27" y2="0.635" width="0.1524" layer="21"/>
-<wire x1="-1.27" y1="-0.635" x2="-0.635" y2="-1.27" width="0.1524" layer="21"/>
-<wire x1="0.635" y1="-1.27" x2="-0.635" y2="-1.27" width="0.1524" layer="21"/>
-<pad name="1" x="0" y="0" drill="1.016" shape="octagon"/>
-<text x="-1.3462" y="1.8288" size="1.27" layer="25" ratio="10">&gt;NAME</text>
-<text x="-1.27" y="-3.175" size="1.27" layer="27">&gt;VALUE</text>
-<rectangle x1="-0.254" y1="-0.254" x2="0.254" y2="0.254" layer="51"/>
-</package>
-<package name="TESTPOINT1" urn="urn:adsk.eagle:footprint:15845498/1" library_version="50">
-<smd name="1" x="0" y="0" dx="3.81" dy="2.032" layer="1"/>
-</package>
 <package name="SOIC127P780X205-16N" urn="urn:adsk.eagle:footprint:16444512/1" library_version="50">
 <description>16-SOIC, 1.27 mm pitch, 7.80 mm span, 10.20 X 5.28 X 2.05 mm body
 &lt;p&gt;16-pin SOIC package with 1.27 mm pitch, 7.80 mm span with body size 10.20 X 5.28 X 2.05 mm&lt;/p&gt;</description>
@@ -4789,6 +4771,18 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <pad name="2" x="0" y="0" drill="1" diameter="1.5"/>
 <pad name="3" x="2.54" y="0" drill="1" diameter="1.5"/>
 </package>
+<package name="TP5000-TESTPOINT-BLK" urn="urn:adsk.eagle:footprint:24642439/2" library_version="373">
+<pad name="P$1" x="0" y="0" drill="1"/>
+<text x="-1.27" y="1.27" size="1.016" layer="25" font="vector">&gt;NAME</text>
+<text x="-1.27" y="-2.54" size="1.016" layer="27" font="vector">&gt;VALUE</text>
+<circle x="0" y="0" radius="1.27" width="0.127" layer="21"/>
+</package>
+<package name="TP5000-TESTPOINT-BLU" urn="urn:adsk.eagle:footprint:24643709/1" library_version="373">
+<pad name="P$1" x="0" y="0" drill="1"/>
+<text x="-1.27" y="1.27" size="1.016" layer="25" font="vector">&gt;NAME</text>
+<text x="-1.27" y="-2.54" size="1.016" layer="27" font="vector">&gt;VALUE</text>
+<circle x="0" y="0" radius="1.27" width="0.127" layer="21"/>
+</package>
 </packages>
 <packages3d>
 <package3d name="1X02" urn="urn:adsk.eagle:package:15461696/1" type="model" library_version="23" library_locally_modified="yes">
@@ -4927,17 +4921,6 @@ Metric Code Size 3225</description>
 <package3d name="MOLEX-04-VERT" urn="urn:adsk.eagle:package:16461091/3" type="model" library_version="46">
 <packageinstances>
 <packageinstance name="MOLEX-04-VERT"/>
-</packageinstances>
-</package3d>
-<package3d name="1X01" urn="urn:adsk.eagle:package:22485/2" type="model" library_version="50">
-<description>PIN HEADER</description>
-<packageinstances>
-<packageinstance name="1X01"/>
-</packageinstances>
-</package3d>
-<package3d name="TESTPOINT1" urn="urn:adsk.eagle:package:15845500/3" type="model" library_version="363">
-<packageinstances>
-<packageinstance name="TESTPOINT1"/>
 </packageinstances>
 </package3d>
 <package3d name="SOIC127P780X205-16N" urn="urn:adsk.eagle:package:16444508/1" type="model" library_version="50">
@@ -6077,6 +6060,16 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <packageinstance name="CONV_OKI-78SR-5/1.5-W36-C"/>
 </packageinstances>
 </package3d>
+<package3d name="TP5000-TESTPOINT" urn="urn:adsk.eagle:package:24642442/4" type="model" library_version="373">
+<packageinstances>
+<packageinstance name="TP5000-TESTPOINT-BLK"/>
+</packageinstances>
+</package3d>
+<package3d name="TP5000-TESTPOINT-BLU" urn="urn:adsk.eagle:package:24643711/2" type="model" library_version="373">
+<packageinstances>
+<packageinstance name="TP5000-TESTPOINT-BLU"/>
+</packageinstances>
+</package3d>
 </packages3d>
 <symbols>
 <symbol name="PINHD2" urn="urn:adsk.eagle:symbol:9166072/1" library_version="23" library_locally_modified="yes">
@@ -6365,15 +6358,6 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <pin name="3" x="-2.54" y="0" visible="pad" length="short" direction="pas" function="dot"/>
 <pin name="4" x="-2.54" y="-2.54" visible="pad" length="short" direction="pas" function="dot"/>
 </symbol>
-<symbol name="PINHD1" urn="urn:adsk.eagle:symbol:15845477/1" library_version="50">
-<wire x1="-6.35" y1="-2.54" x2="1.27" y2="-2.54" width="0.4064" layer="94"/>
-<wire x1="1.27" y1="-2.54" x2="1.27" y2="2.54" width="0.4064" layer="94"/>
-<wire x1="1.27" y1="2.54" x2="-6.35" y2="2.54" width="0.4064" layer="94"/>
-<wire x1="-6.35" y1="2.54" x2="-6.35" y2="-2.54" width="0.4064" layer="94"/>
-<text x="-6.35" y="3.175" size="1.778" layer="95">&gt;NAME</text>
-<text x="-6.35" y="-5.08" size="1.778" layer="96">&gt;VALUE</text>
-<pin name="1" x="-2.54" y="0" visible="pad" length="short" direction="pas" function="dot"/>
-</symbol>
 <symbol name="OKI-78SR-5/1.5-W36-C" urn="urn:adsk.eagle:symbol:24308286/5" library_version="373">
 <wire x1="-7.62" y1="5.08" x2="-7.62" y2="-2.54" width="0.1524" layer="94"/>
 <wire x1="-7.62" y1="-2.54" x2="7.62" y2="-2.54" width="0.1524" layer="94"/>
@@ -6384,6 +6368,15 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <pin name="VIN" x="-10.16" y="2.54" length="short" direction="in"/>
 <pin name="GND" x="10.16" y="0" length="short" direction="pwr" rot="R180"/>
 <pin name="VOUT" x="10.16" y="2.54" length="short" direction="sup" rot="R180"/>
+</symbol>
+<symbol name="TP5000-TESTPOINT" urn="urn:adsk.eagle:symbol:24642438/2" library_version="373">
+<pin name="1" x="-5.08" y="0" visible="pin" length="short"/>
+<wire x1="-2.54" y1="-2.54" x2="-2.54" y2="2.54" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="2.54" x2="2.54" y2="2.54" width="0.254" layer="94"/>
+<wire x1="2.54" y1="2.54" x2="2.54" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="2.54" y1="-2.54" x2="-2.54" y2="-2.54" width="0.254" layer="94"/>
+<text x="-2.54" y="3.81" size="1.778" layer="95">&gt;NAME</text>
+<text x="-2.54" y="-5.08" size="1.778" layer="96">&gt;VALUE</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -9450,38 +9443,6 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="PINHD-1X1" urn="urn:adsk.eagle:component:15845501/3" prefix="TP" uservalue="yes" library_version="363">
-<description>&lt;b&gt;PIN HEADER&lt;/b&gt;</description>
-<gates>
-<gate name="G$1" symbol="PINHD1" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="1X01">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-</connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:22485/2"/>
-</package3dinstances>
-<technologies>
-<technology name="">
-<attribute name="POPULARITY" value="64" constant="no"/>
-</technology>
-</technologies>
-</device>
-<device name="TESTPOINT1" package="TESTPOINT1">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-</connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:15845500/3"/>
-</package3dinstances>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
 <deviceset name="OKI-78SR-5/1.5-W36-C" urn="urn:adsk.eagle:component:24308289/6" prefix="PS" library_version="373">
 <description>OKI Series 8 W Single Output 5 V Non Isolated Through Hole DC/DC Converter </description>
 <gates>
@@ -9506,6 +9467,42 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <attribute name="PACKAGE" value="SIP-3 Murata Power"/>
 <attribute name="PURCHASE-URL" value="https://pricing.snapeda.com/search/part/OKI-78SR-5/1.5-W36-C/?ref=eda"/>
 </technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="TP5000-TESTPOINT-BLK" urn="urn:adsk.eagle:component:24643651/4" prefix="TP" library_version="373">
+<gates>
+<gate name="G$1" symbol="TP5000-TESTPOINT" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="TP5000-TESTPOINT-BLK">
+<connects>
+<connect gate="G$1" pin="1" pad="P$1"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:24642442/4"/>
+</package3dinstances>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="TP5000-TESTPOINT-BLU" urn="urn:adsk.eagle:component:24643712/3" prefix="TP" library_version="373">
+<gates>
+<gate name="G$1" symbol="TP5000-TESTPOINT" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="TP5000-TESTPOINT-BLU">
+<connects>
+<connect gate="G$1" pin="1" pad="P$1"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:24643711/2"/>
+</package3dinstances>
+<technologies>
+<technology name=""/>
 </technologies>
 </device>
 </devices>
@@ -9572,10 +9569,10 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <part name="GND15" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" deviceset="GND" device=""/>
 <part name="GND11" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" deviceset="GND" device=""/>
 <part name="R5" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:4021199/4" value="270R"/>
-<part name="TP1" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" deviceset="PINHD-1X1" device="TESTPOINT1" package3d_urn="urn:adsk.eagle:package:15845500/3"/>
-<part name="TP2" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" deviceset="PINHD-1X1" device="TESTPOINT1" package3d_urn="urn:adsk.eagle:package:15845500/3"/>
 <part name="GND16" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" deviceset="GND" device=""/>
 <part name="PS2" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" deviceset="OKI-78SR-5/1.5-W36-C" device="" package3d_urn="urn:adsk.eagle:package:24308288/2"/>
+<part name="TP3" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" deviceset="TP5000-TESTPOINT-BLK" device="" package3d_urn="urn:adsk.eagle:package:24642442/4"/>
+<part name="TP2" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" deviceset="TP5000-TESTPOINT-BLU" device="" package3d_urn="urn:adsk.eagle:package:24643711/2"/>
 </parts>
 <sheets>
 <sheet>
@@ -9835,20 +9832,20 @@ LN2 valves.</text>
 <attribute name="NAME" x="138.43" y="197.0786" size="1.778" layer="95"/>
 <attribute name="VALUE" x="142.24" y="193.802" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="TP1" gate="G$1" x="187.96" y="200.66" smashed="yes" rot="R180">
-<attribute name="NAME" x="194.31" y="197.485" size="1.778" layer="95" rot="R180"/>
-<attribute name="VALUE" x="194.31" y="205.74" size="1.778" layer="96" rot="R180"/>
-</instance>
-<instance part="TP2" gate="G$1" x="187.96" y="190.5" smashed="yes" rot="R180">
-<attribute name="NAME" x="194.31" y="187.325" size="1.778" layer="95" rot="R180"/>
-<attribute name="VALUE" x="194.31" y="195.58" size="1.778" layer="96" rot="R180"/>
-</instance>
-<instance part="GND16" gate="1" x="198.12" y="185.42" smashed="yes">
-<attribute name="VALUE" x="195.58" y="182.88" size="1.778" layer="96"/>
+<instance part="GND16" gate="1" x="297.18" y="187.96" smashed="yes">
+<attribute name="VALUE" x="294.64" y="185.42" size="1.778" layer="96"/>
 </instance>
 <instance part="PS2" gate="G$1" x="33.02" y="68.58" smashed="yes">
 <attribute name="NAME" x="30.48" y="74.93" size="1.778" layer="95"/>
 <attribute name="VALUE" x="20.32" y="62.23" size="1.778" layer="96"/>
+</instance>
+<instance part="TP3" gate="G$1" x="289.56" y="193.04" smashed="yes" rot="R180">
+<attribute name="NAME" x="292.1" y="189.23" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="302.26" y="182.88" size="1.778" layer="96" rot="R180"/>
+</instance>
+<instance part="TP2" gate="G$1" x="190.5" y="200.66" smashed="yes" rot="R180">
+<attribute name="NAME" x="193.04" y="196.85" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="213.36" y="193.04" size="1.778" layer="96" rot="R180"/>
 </instance>
 </instances>
 <busses>
@@ -9992,10 +9989,10 @@ LN2 valves.</text>
 <junction x="152.4" y="208.28"/>
 </segment>
 <segment>
-<pinref part="TP2" gate="G$1" pin="1"/>
-<wire x1="190.5" y1="190.5" x2="198.12" y2="190.5" width="0.1524" layer="91"/>
 <pinref part="GND16" gate="1" pin="GND"/>
-<wire x1="198.12" y1="190.5" x2="198.12" y2="187.96" width="0.1524" layer="91"/>
+<wire x1="297.18" y1="193.04" x2="297.18" y2="190.5" width="0.1524" layer="91"/>
+<pinref part="TP3" gate="G$1" pin="1"/>
+<wire x1="294.64" y1="193.04" x2="297.18" y2="193.04" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="CNANO1" gate="G$1" pin="VOFF"/>
@@ -10478,6 +10475,11 @@ LN2 valves.</text>
 <wire x1="276.86" y1="129.54" x2="292.1" y2="129.54" width="0.1524" layer="91"/>
 <label x="292.1" y="129.54" size="1.778" layer="95" xref="yes"/>
 </segment>
+<segment>
+<wire x1="195.58" y1="200.66" x2="198.12" y2="200.66" width="0.1524" layer="91"/>
+<label x="198.12" y="200.66" size="1.778" layer="95" xref="yes"/>
+<pinref part="TP2" gate="G$1" pin="1"/>
+</segment>
 </net>
 <net name="N$12" class="0">
 <segment>
@@ -10585,11 +10587,6 @@ LN2 valves.</text>
 <pinref part="CNANO1" gate="G$1" pin="PD1"/>
 <wire x1="276.86" y1="132.08" x2="279.4" y2="132.08" width="0.1524" layer="91"/>
 <label x="279.4" y="132.08" size="1.778" layer="95" xref="yes"/>
-</segment>
-<segment>
-<pinref part="TP1" gate="G$1" pin="1"/>
-<wire x1="190.5" y1="200.66" x2="198.12" y2="200.66" width="0.1524" layer="91"/>
-<label x="198.12" y="200.66" size="1.778" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="N$4" class="0">

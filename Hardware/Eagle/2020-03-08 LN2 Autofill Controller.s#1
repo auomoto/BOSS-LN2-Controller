@@ -616,17 +616,6 @@
 <text x="-10.16" y="43.18" size="1.27" layer="25" font="vector">&gt;NAME</text>
 <text x="-10.16" y="-44.45" size="1.27" layer="27" font="vector">&gt;VALUE</text>
 </package>
-<package name="OKI-78SR" urn="urn:adsk.eagle:footprint:23154150/3" library_version="363">
-<pad name="VIN" x="-2.54" y="0" drill="0.9906" shape="square"/>
-<pad name="GND" x="0" y="0" drill="0.9906" rot="R90"/>
-<pad name="VOUT" x="2.54" y="0" drill="0.9906"/>
-<wire x1="5.588" y1="1.524" x2="-5.588" y2="1.524" width="0.254" layer="21"/>
-<wire x1="-5.588" y1="1.524" x2="-5.588" y2="-15.494" width="0.254" layer="21"/>
-<wire x1="-5.588" y1="-15.494" x2="5.588" y2="-15.494" width="0.254" layer="21"/>
-<wire x1="5.588" y1="-15.494" x2="5.588" y2="1.524" width="0.254" layer="21"/>
-<text x="-5.08" y="2.032" size="1.016" layer="25" font="vector">&gt;NAME</text>
-<text x="-5.08" y="-17.272" size="1.016" layer="27" font="vector">&gt;VALUE</text>
-</package>
 <package name="C0805" urn="urn:adsk.eagle:footprint:23124/1" library_version="363">
 <description>&lt;b&gt;CAPACITOR&lt;/b&gt;&lt;p&gt;</description>
 <wire x1="-1.973" y1="0.983" x2="1.973" y2="0.983" width="0.0508" layer="39"/>
@@ -4773,6 +4762,33 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <rectangle x1="0.889" y1="-2.921" x2="1.651" y2="-1.905" layer="21"/>
 <rectangle x1="3.429" y1="-2.921" x2="4.191" y2="-1.905" layer="21"/>
 </package>
+<package name="CONV_OKI-78SR-5/1.5-W36-C" urn="urn:adsk.eagle:footprint:24308287/1" library_version="373">
+<wire x1="-5.2" y1="5.3" x2="-5.2" y2="-3.3" width="0.127" layer="21"/>
+<wire x1="-5.2" y1="-3.3" x2="5.2" y2="-3.3" width="0.127" layer="21"/>
+<wire x1="5.2" y1="-3.3" x2="5.2" y2="5.3" width="0.127" layer="21"/>
+<wire x1="5.2" y1="5.3" x2="-5.2" y2="5.3" width="0.127" layer="21"/>
+<wire x1="-5.2" y1="1.3" x2="5.2" y2="1.3" width="0.127" layer="51"/>
+<wire x1="-5.2" y1="2.8" x2="5.2" y2="2.8" width="0.127" layer="51"/>
+<wire x1="-5.2" y1="5.3" x2="-5.2" y2="2.8" width="0.127" layer="51"/>
+<wire x1="-5.2" y1="2.8" x2="-5.2" y2="1.3" width="0.127" layer="51"/>
+<wire x1="-5.2" y1="1.3" x2="-5.2" y2="-3.3" width="0.127" layer="51"/>
+<wire x1="-5.2" y1="-3.3" x2="5.2" y2="-3.3" width="0.127" layer="51"/>
+<wire x1="5.2" y1="-3.3" x2="5.2" y2="1.3" width="0.127" layer="51"/>
+<wire x1="5.2" y1="1.3" x2="5.2" y2="2.8" width="0.127" layer="51"/>
+<wire x1="5.2" y1="2.8" x2="5.2" y2="5.3" width="0.127" layer="51"/>
+<wire x1="5.2" y1="5.3" x2="-5.2" y2="5.3" width="0.127" layer="51"/>
+<wire x1="-5.45" y1="-3.55" x2="-5.45" y2="5.55" width="0.05" layer="39"/>
+<wire x1="-5.45" y1="5.55" x2="5.45" y2="5.55" width="0.05" layer="39"/>
+<wire x1="5.45" y1="5.55" x2="5.45" y2="-3.55" width="0.05" layer="39"/>
+<wire x1="5.45" y1="-3.55" x2="-5.45" y2="-3.55" width="0.05" layer="39"/>
+<circle x="-2.54" y="-3.75" radius="0.1" width="0.2" layer="21"/>
+<circle x="-2.54" y="-3.75" radius="0.1" width="0.2" layer="51"/>
+<text x="-5" y="6" size="1" layer="25">&gt;NAME</text>
+<text x="-5" y="-5" size="1" layer="27">&gt;VALUE</text>
+<pad name="1" x="-2.54" y="0" drill="1" diameter="1.5" shape="square"/>
+<pad name="2" x="0" y="0" drill="1" diameter="1.5"/>
+<pad name="3" x="2.54" y="0" drill="1" diameter="1.5"/>
+</package>
 </packages>
 <packages3d>
 <package3d name="1X02" urn="urn:adsk.eagle:package:15461696/1" type="model" library_version="23" library_locally_modified="yes">
@@ -4806,11 +4822,6 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <package3d name="CURIOSITYNANO4809CASTELLATED" urn="urn:adsk.eagle:package:15461731/6" type="model" library_version="363">
 <packageinstances>
 <packageinstance name="CURIOSITYNANO4809CASTELLATED"/>
-</packageinstances>
-</package3d>
-<package3d name="OKI-78SR" urn="urn:adsk.eagle:package:23154151/4" type="model" library_version="363">
-<packageinstances>
-<packageinstance name="OKI-78SR"/>
 </packageinstances>
 </package3d>
 <package3d name="C0805" urn="urn:adsk.eagle:package:4021265/3" type="model" library_version="363">
@@ -6061,6 +6072,11 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <packageinstance name="1X04/90"/>
 </packageinstances>
 </package3d>
+<package3d name="CONV_OKI-78SR-5/1.5-W36-C" urn="urn:adsk.eagle:package:24308288/2" type="model" library_version="373">
+<packageinstances>
+<packageinstance name="CONV_OKI-78SR-5/1.5-W36-C"/>
+</packageinstances>
+</package3d>
 </packages3d>
 <symbols>
 <symbol name="PINHD2" urn="urn:adsk.eagle:symbol:9166072/1" library_version="23" library_locally_modified="yes">
@@ -6198,17 +6214,6 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <wire x1="-12.7" y1="19.05" x2="12.7" y2="19.05" width="0.254" layer="94"/>
 <text x="-10.16" y="38.1" size="1.778" layer="95">&gt;NAME</text>
 <text x="-12.7" y="-43.18" size="1.778" layer="96">&gt;VALUE</text>
-</symbol>
-<symbol name="OKI-78SR" urn="urn:adsk.eagle:symbol:15463205/4" library_version="363">
-<pin name="VIN" x="-10.16" y="0" visible="pin" length="short"/>
-<pin name="GND" x="10.16" y="-2.54" visible="pin" length="short" rot="R180"/>
-<pin name="VOUT" x="10.16" y="0" visible="pin" length="short" rot="R180"/>
-<wire x1="-7.62" y1="-5.08" x2="7.62" y2="-5.08" width="0.254" layer="94"/>
-<wire x1="7.62" y1="-5.08" x2="7.62" y2="2.54" width="0.254" layer="94"/>
-<wire x1="7.62" y1="2.54" x2="-7.62" y2="2.54" width="0.254" layer="94"/>
-<wire x1="-7.62" y1="2.54" x2="-7.62" y2="-5.08" width="0.254" layer="94"/>
-<text x="-7.62" y="3.81" size="1.27" layer="95">&gt;NAME</text>
-<text x="-7.62" y="-7.62" size="1.27" layer="96">&gt;VALUE</text>
 </symbol>
 <symbol name="C-US-1" urn="urn:adsk.eagle:symbol:9166023/1" library_version="25">
 <wire x1="-2.54" y1="0" x2="2.54" y2="0" width="0.254" layer="94"/>
@@ -6368,6 +6373,17 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <text x="-6.35" y="3.175" size="1.778" layer="95">&gt;NAME</text>
 <text x="-6.35" y="-5.08" size="1.778" layer="96">&gt;VALUE</text>
 <pin name="1" x="-2.54" y="0" visible="pad" length="short" direction="pas" function="dot"/>
+</symbol>
+<symbol name="OKI-78SR-5/1.5-W36-C" urn="urn:adsk.eagle:symbol:24308286/5" library_version="373">
+<wire x1="-7.62" y1="5.08" x2="-7.62" y2="-2.54" width="0.1524" layer="94"/>
+<wire x1="-7.62" y1="-2.54" x2="7.62" y2="-2.54" width="0.1524" layer="94"/>
+<wire x1="7.62" y1="-2.54" x2="7.62" y2="5.08" width="0.1524" layer="94"/>
+<wire x1="7.62" y1="5.08" x2="-7.62" y2="5.08" width="0.1524" layer="94"/>
+<text x="-7.62" y="6.35" size="1.778" layer="95">&gt;NAME</text>
+<text x="-7.62" y="-6.35" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="VIN" x="-10.16" y="2.54" length="short" direction="in"/>
+<pin name="GND" x="10.16" y="0" length="short" direction="pwr" rot="R180"/>
+<pin name="VOUT" x="10.16" y="2.54" length="short" direction="sup" rot="R180"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -6703,26 +6719,6 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 </connects>
 <package3dinstances>
 <package3dinstance package3d_urn="urn:adsk.eagle:package:15461731/6"/>
-</package3dinstances>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="OKI-78SR" urn="urn:adsk.eagle:component:23154152/7" prefix="VR" uservalue="yes" library_version="363">
-<gates>
-<gate name="G$1" symbol="OKI-78SR" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="OKI-78SR">
-<connects>
-<connect gate="G$1" pin="GND" pad="GND"/>
-<connect gate="G$1" pin="VIN" pad="VIN"/>
-<connect gate="G$1" pin="VOUT" pad="VOUT"/>
-</connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:23154151/4"/>
 </package3dinstances>
 <technologies>
 <technology name=""/>
@@ -9486,6 +9482,34 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 </device>
 </devices>
 </deviceset>
+<deviceset name="OKI-78SR-5/1.5-W36-C" urn="urn:adsk.eagle:component:24308289/6" prefix="PS" library_version="373">
+<description>OKI Series 8 W Single Output 5 V Non Isolated Through Hole DC/DC Converter </description>
+<gates>
+<gate name="G$1" symbol="OKI-78SR-5/1.5-W36-C" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="CONV_OKI-78SR-5/1.5-W36-C">
+<connects>
+<connect gate="G$1" pin="GND" pad="2"/>
+<connect gate="G$1" pin="VIN" pad="1"/>
+<connect gate="G$1" pin="VOUT" pad="3"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:24308288/2"/>
+</package3dinstances>
+<technologies>
+<technology name="">
+<attribute name="DESCRIPTION" value=" Linear Regulator Replacement DC DC Converter 1 Output 5V 1.5A 7V - 36V Input "/>
+<attribute name="DIGI-KEY_PART_NUMBER" value="811-2196-5-ND"/>
+<attribute name="MF" value="Murata Power Solutions Inc."/>
+<attribute name="MP" value="OKI-78SR-5/1.5-W36-C"/>
+<attribute name="PACKAGE" value="SIP-3 Murata Power"/>
+<attribute name="PURCHASE-URL" value="https://pricing.snapeda.com/search/part/OKI-78SR-5/1.5-W36-C/?ref=eda"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
 </devicesets>
 </library>
 </libraries>
@@ -9504,7 +9528,6 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <part name="SW3" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" deviceset="SWITCH-OMRON-B3J-1LED" device="" package3d_urn="urn:adsk.eagle:package:16346131/2" value="Omron B3J-2100"/>
 <part name="SW4" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" deviceset="SWITCH-OMRON-B3J-1LED" device="" package3d_urn="urn:adsk.eagle:package:16346131/2" value="Omron B3J-2100"/>
 <part name="CNANO1" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" deviceset="CURIOSITYNANO4809" device="CASTELLATED" package3d_urn="urn:adsk.eagle:package:15461731/6"/>
-<part name="VR1" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" deviceset="OKI-78SR" device="" package3d_urn="urn:adsk.eagle:package:23154151/4" value="OKI-78SR-5"/>
 <part name="C1" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" deviceset="C-US" device="C1210K" package3d_urn="urn:adsk.eagle:package:4021329/2" value="10uF"/>
 <part name="P+2" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" deviceset="+24V" device=""/>
 <part name="GND4" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" deviceset="GND" device=""/>
@@ -9552,6 +9575,7 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <part name="TP1" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" deviceset="PINHD-1X1" device="TESTPOINT1" package3d_urn="urn:adsk.eagle:package:15845500/3"/>
 <part name="TP2" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" deviceset="PINHD-1X1" device="TESTPOINT1" package3d_urn="urn:adsk.eagle:package:15845500/3"/>
 <part name="GND16" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" deviceset="GND" device=""/>
+<part name="PS2" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" deviceset="OKI-78SR-5/1.5-W36-C" device="" package3d_urn="urn:adsk.eagle:package:24308288/2"/>
 </parts>
 <sheets>
 <sheet>
@@ -9659,10 +9683,6 @@ LN2 valves.</text>
 <instance part="CNANO1" gate="G$1" x="261.62" y="129.54" smashed="yes">
 <attribute name="NAME" x="251.46" y="167.64" size="1.778" layer="95"/>
 <attribute name="VALUE" x="248.92" y="86.36" size="1.778" layer="96"/>
-</instance>
-<instance part="VR1" gate="G$1" x="33.02" y="71.12" smashed="yes">
-<attribute name="NAME" x="24.13" y="77.47" size="1.778" layer="95"/>
-<attribute name="VALUE" x="34.29" y="63.5" size="1.778" layer="96"/>
 </instance>
 <instance part="C1" gate="G$1" x="15.24" y="66.04" smashed="yes">
 <attribute name="NAME" x="11.176" y="66.675" size="1.778" layer="95"/>
@@ -9826,6 +9846,10 @@ LN2 valves.</text>
 <instance part="GND16" gate="1" x="198.12" y="185.42" smashed="yes">
 <attribute name="VALUE" x="195.58" y="182.88" size="1.778" layer="96"/>
 </instance>
+<instance part="PS2" gate="G$1" x="33.02" y="68.58" smashed="yes">
+<attribute name="NAME" x="30.48" y="74.93" size="1.778" layer="95"/>
+<attribute name="VALUE" x="20.32" y="62.23" size="1.778" layer="96"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -9843,9 +9867,9 @@ LN2 valves.</text>
 </segment>
 <segment>
 <pinref part="GND4" gate="1" pin="GND"/>
-<pinref part="VR1" gate="G$1" pin="GND"/>
 <wire x1="45.72" y1="58.42" x2="45.72" y2="68.58" width="0.1524" layer="91"/>
 <wire x1="45.72" y1="68.58" x2="43.18" y2="68.58" width="0.1524" layer="91"/>
+<pinref part="PS2" gate="G$1" pin="GND"/>
 </segment>
 <segment>
 <pinref part="GND2" gate="1" pin="GND"/>
@@ -9990,12 +10014,6 @@ LN2 valves.</text>
 <pinref part="JP2" gate="A" pin="13"/>
 <wire x1="48.26" y1="127" x2="40.64" y2="127" width="0.1524" layer="91"/>
 <label x="40.64" y="127" size="1.778" layer="95" rot="MR0" xref="yes"/>
-</segment>
-<segment>
-<pinref part="VR1" gate="G$1" pin="VOUT"/>
-<wire x1="43.18" y1="71.12" x2="48.26" y2="71.12" width="0.1524" layer="91"/>
-<pinref part="P+3" gate="1" pin="+5V"/>
-<wire x1="48.26" y1="71.12" x2="48.26" y2="76.2" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="P+5" gate="1" pin="+5V"/>
@@ -10255,11 +10273,11 @@ LN2 valves.</text>
 <segment>
 <pinref part="C1" gate="G$1" pin="1"/>
 <wire x1="15.24" y1="68.58" x2="15.24" y2="71.12" width="0.1524" layer="91"/>
-<pinref part="VR1" gate="G$1" pin="VIN"/>
 <wire x1="15.24" y1="71.12" x2="22.86" y2="71.12" width="0.1524" layer="91"/>
 <pinref part="P+4" gate="1" pin="+24V"/>
 <wire x1="15.24" y1="71.12" x2="15.24" y2="76.2" width="0.1524" layer="91"/>
 <junction x="15.24" y="71.12"/>
+<pinref part="PS2" gate="G$1" pin="VIN"/>
 </segment>
 </net>
 <net name="N$1" class="0">
@@ -10581,6 +10599,14 @@ LN2 valves.</text>
 <wire x1="147.32" y1="195.58" x2="147.32" y2="200.66" width="0.1524" layer="91"/>
 <pinref part="LCD1" gate="G$1" pin="/RES"/>
 <wire x1="147.32" y1="200.66" x2="149.86" y2="200.66" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="VOUT" class="0">
+<segment>
+<wire x1="43.18" y1="71.12" x2="48.26" y2="71.12" width="0.1524" layer="91"/>
+<pinref part="P+3" gate="1" pin="+5V"/>
+<wire x1="48.26" y1="71.12" x2="48.26" y2="76.2" width="0.1524" layer="91"/>
+<pinref part="PS2" gate="G$1" pin="VOUT"/>
 </segment>
 </net>
 </nets>
