@@ -9499,10 +9499,10 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 </classes>
 <parts>
 <part name="JP2" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" deviceset="PINHD-1X20" device="" package3d_urn="urn:adsk.eagle:package:22441/2"/>
-<part name="SW1" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" deviceset="SWITCH-OMRON-B3J-1LED" device="" package3d_urn="urn:adsk.eagle:package:16346131/2"/>
-<part name="SW2" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" deviceset="SWITCH-OMRON-B3J-1LED" device="" package3d_urn="urn:adsk.eagle:package:16346131/2"/>
-<part name="SW3" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" deviceset="SWITCH-OMRON-B3J-1LED" device="" package3d_urn="urn:adsk.eagle:package:16346131/2"/>
-<part name="SW4" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" deviceset="SWITCH-OMRON-B3J-1LED" device="" package3d_urn="urn:adsk.eagle:package:16346131/2"/>
+<part name="SW1" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" deviceset="SWITCH-OMRON-B3J-1LED" device="" package3d_urn="urn:adsk.eagle:package:16346131/2" value="Omron B3J-2100"/>
+<part name="SW2" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" deviceset="SWITCH-OMRON-B3J-1LED" device="" package3d_urn="urn:adsk.eagle:package:16346131/2" value="Omron B3J-2100"/>
+<part name="SW3" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" deviceset="SWITCH-OMRON-B3J-1LED" device="" package3d_urn="urn:adsk.eagle:package:16346131/2" value="Omron B3J-2100"/>
+<part name="SW4" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" deviceset="SWITCH-OMRON-B3J-1LED" device="" package3d_urn="urn:adsk.eagle:package:16346131/2" value="Omron B3J-2100"/>
 <part name="CNANO1" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" deviceset="CURIOSITYNANO4809" device="CASTELLATED" package3d_urn="urn:adsk.eagle:package:15461731/6"/>
 <part name="VR1" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" deviceset="OKI-78SR" device="" package3d_urn="urn:adsk.eagle:package:23154151/4" value="OKI-78SR-5"/>
 <part name="C1" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" deviceset="C-US" device="C1210K" package3d_urn="urn:adsk.eagle:package:4021329/2" value="10uF"/>

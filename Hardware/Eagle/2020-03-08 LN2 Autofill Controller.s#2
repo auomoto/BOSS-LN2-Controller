@@ -10067,6 +10067,12 @@ LN2 valves.</text>
 <wire x1="276.86" y1="149.86" x2="289.56" y2="149.86" width="0.1524" layer="91"/>
 <label x="289.56" y="149.86" size="1.778" layer="95" xref="yes"/>
 </segment>
+<segment>
+<wire x1="43.18" y1="71.12" x2="48.26" y2="71.12" width="0.1524" layer="91"/>
+<pinref part="P+3" gate="1" pin="+5V"/>
+<wire x1="48.26" y1="71.12" x2="48.26" y2="76.2" width="0.1524" layer="91"/>
+<pinref part="PS2" gate="G$1" pin="VOUT"/>
+</segment>
 </net>
 <net name="THER4-SIG" class="0">
 <segment>
@@ -10574,14 +10580,6 @@ LN2 valves.</text>
 <wire x1="147.32" y1="195.58" x2="147.32" y2="200.66" width="0.1524" layer="91"/>
 <pinref part="LCD1" gate="G$1" pin="/RES"/>
 <wire x1="147.32" y1="200.66" x2="149.86" y2="200.66" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="VOUT" class="0">
-<segment>
-<wire x1="43.18" y1="71.12" x2="48.26" y2="71.12" width="0.1524" layer="91"/>
-<pinref part="P+3" gate="1" pin="+5V"/>
-<wire x1="48.26" y1="71.12" x2="48.26" y2="76.2" width="0.1524" layer="91"/>
-<pinref part="PS2" gate="G$1" pin="VOUT"/>
 </segment>
 </net>
 <net name="AIN" class="0">

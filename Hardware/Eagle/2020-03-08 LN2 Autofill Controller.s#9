@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -9669,8 +9669,8 @@ LN2 valves.</text>
 <instance part="P+2" gate="1" x="33.02" y="30.48" smashed="yes">
 <attribute name="VALUE" x="30.48" y="33.02" size="1.778" layer="96"/>
 </instance>
-<instance part="GND4" gate="1" x="33.02" y="55.88" smashed="yes">
-<attribute name="VALUE" x="30.48" y="53.34" size="1.778" layer="96"/>
+<instance part="GND4" gate="1" x="45.72" y="55.88" smashed="yes">
+<attribute name="VALUE" x="43.18" y="53.34" size="1.778" layer="96"/>
 </instance>
 <instance part="P+3" gate="1" x="48.26" y="78.74" smashed="yes">
 <attribute name="VALUE" x="45.72" y="80.01" size="1.778" layer="96"/>
@@ -9842,7 +9842,8 @@ LN2 valves.</text>
 <segment>
 <pinref part="GND4" gate="1" pin="GND"/>
 <pinref part="VR1" gate="G$1" pin="GND"/>
-<wire x1="33.02" y1="58.42" x2="43.18" y2="68.58" width="0.1524" layer="91"/>
+<wire x1="45.72" y1="58.42" x2="45.72" y2="68.58" width="0.1524" layer="91"/>
+<wire x1="45.72" y1="68.58" x2="43.18" y2="68.58" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="GND2" gate="1" pin="GND"/>

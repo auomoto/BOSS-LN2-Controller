@@ -10481,7 +10481,7 @@ LN2 valves.</text>
 <pinref part="TP2" gate="G$1" pin="1"/>
 </segment>
 </net>
-<net name="N$12" class="0">
+<net name="VCC1" class="0">
 <segment>
 <pinref part="JP1" gate="A" pin="1"/>
 <pinref part="U3" gate="G$1" pin="VCC1"/>
@@ -10508,7 +10508,7 @@ LN2 valves.</text>
 <wire x1="27.94" y1="203.2" x2="38.1" y2="203.2" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$15" class="0">
+<net name="GND1" class="0">
 <segment>
 <pinref part="JP1" gate="A" pin="4"/>
 <pinref part="U3" gate="G$1" pin="GND1"/>

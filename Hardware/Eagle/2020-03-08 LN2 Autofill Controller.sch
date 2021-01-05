@@ -10571,7 +10571,7 @@ LN2 valves.</text>
 <label x="279.4" y="132.08" size="1.778" layer="95" xref="yes"/>
 </segment>
 </net>
-<net name="N$4" class="0">
+<net name="/RES" class="0">
 <segment>
 <pinref part="R5" gate="G$1" pin="1"/>
 <wire x1="144.78" y1="195.58" x2="147.32" y2="195.58" width="0.1524" layer="91"/>

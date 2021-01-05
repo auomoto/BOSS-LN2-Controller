@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="mil"/>
+<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="5" altunitdist="mil" altunit="mil"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="yes" active="yes"/>
@@ -162,7 +162,7 @@
 <layer number="255" name="routoute" color="7" fill="1" visible="yes" active="yes"/>
 </layers>
 <board>
-<fusionsync huburn="a.cGVyc29uYWw6dWUyZDgyNjcx" projecturn="a.cGVyc29uYWw6dWUyZDgyNjcxIzIwMTgxMjIwMTY2NDc1MjMx" f3durn="urn:adsk.wipprod:dm.lineage:884oX0ZiSxqabbx6GPY5og" pcbguid="f0fe7d80-5f7d-4e3a-81d3-8bef0d804b21" lastpulledtime="" lastsyncedchangeguid="bab4f5ea-91a8-42d3-a701-048feb691c4b" latestrevisionid="" lastsyncedrevisionid="" lastboardhashguid="996164a3-eecc-1842-1ce3-d9e92e45d07c" lastpushedtime="2020-11-30T03:50:22Z" linktopcb3d="false"/>
+<fusionsync huburn="a.cGVyc29uYWw6dWUyZDgyNjcx" projecturn="a.cGVyc29uYWw6dWUyZDgyNjcxIzIwMTgxMjIwMTY2NDc1MjMx" f3durn="urn:adsk.wipprod:dm.lineage:884oX0ZiSxqabbx6GPY5og" pcbguid="f0fe7d80-5f7d-4e3a-81d3-8bef0d804b21" lastpulledtime="" lastsyncedchangeguid="bab4f5ea-91a8-42d3-a701-048feb691c4b" latestrevisionid="" lastsyncedrevisionid="" lastboardhashguid="b41b28e0-1374-b788-9db5-74b7a6a4b89e" lastpushedtime="2020-11-30T05:12:59Z" linktopcb3d="false"/>
 <plain>
 <wire x1="0" y1="0" x2="114.3" y2="0" width="0" layer="20"/>
 <wire x1="114.3" y1="0" x2="114.3" y2="95.25" width="0" layer="20"/>
@@ -225,15 +225,35 @@
 <text x="37.465" y="85.725" size="1.016" layer="21" font="vector">18</text>
 <text x="34.925" y="85.725" size="1.016" layer="21" font="vector">19</text>
 <text x="32.385" y="85.725" size="1.016" layer="21" font="vector">20</text>
-<text x="85.09" y="5.08" size="2.54" layer="22" font="vector" rot="MR0">LN2 Autofill Controller 2020-03-08</text>
-<wire x1="26.67" y1="3.81" x2="86.36" y2="3.81" width="0.254" layer="22"/>
-<wire x1="86.36" y1="3.81" x2="86.36" y2="8.89" width="0.254" layer="22"/>
-<wire x1="86.36" y1="8.89" x2="26.67" y2="8.89" width="0.254" layer="22"/>
-<wire x1="26.67" y1="8.89" x2="26.67" y2="3.81" width="0.254" layer="22"/>
+<wire x1="26.67" y1="7.62" x2="86.36" y2="7.62" width="0.254" layer="22"/>
+<wire x1="86.36" y1="7.62" x2="86.36" y2="12.7" width="0.254" layer="22"/>
+<wire x1="86.36" y1="12.7" x2="26.67" y2="12.7" width="0.254" layer="22"/>
+<wire x1="26.67" y1="12.7" x2="26.67" y2="7.62" width="0.254" layer="22"/>
 <text x="15.24" y="9.525" size="1.016" layer="22" font="vector" rot="MR0">GND</text>
 <text x="20.955" y="9.525" size="1.016" layer="22" font="vector" rot="MR0">PRES</text>
 <circle x="5.08" y="5.08" radius="4.826" width="0.1524" layer="21"/>
 <hole x="5.08" y="5.08" drill="3.175"/>
+<text x="80.9625" y="90.805" size="0.8128" layer="22" font="vector" rot="MR90">VALV1</text>
+<text x="78.4225" y="90.805" size="0.8128" layer="22" font="vector" rot="MR90">LED1K</text>
+<text x="75.8825" y="90.805" size="0.8128" layer="22" font="vector" rot="MR90">LED1A</text>
+<text x="73.3425" y="90.805" size="0.8128" layer="22" font="vector" rot="MR90">VALV2</text>
+<text x="70.8025" y="90.805" size="0.8128" layer="22" font="vector" rot="MR90">LED2K</text>
+<text x="68.2625" y="90.805" size="0.8128" layer="22" font="vector" rot="MR90">LED2A</text>
+<text x="65.7225" y="90.805" size="0.8128" layer="22" font="vector" rot="MR90">GND</text>
+<text x="63.1825" y="90.805" size="0.8128" layer="22" font="vector" rot="MR90">NC</text>
+<text x="60.6425" y="90.805" size="0.8128" layer="22" font="vector" rot="MR90">THER1</text>
+<text x="58.1025" y="90.805" size="0.8128" layer="22" font="vector" rot="MR90">THER2</text>
+<text x="55.5625" y="90.805" size="0.8128" layer="22" font="vector" rot="MR90">THER3</text>
+<text x="53.0225" y="90.805" size="0.8128" layer="22" font="vector" rot="MR90">THER4</text>
+<text x="50.4825" y="90.805" size="0.8128" layer="22" font="vector" rot="MR90">+5V</text>
+<text x="47.9425" y="90.805" size="0.8128" layer="22" font="vector" rot="MR90">GND</text>
+<text x="45.4025" y="90.805" size="0.8128" layer="22" font="vector" rot="MR90">VALV3</text>
+<text x="42.8625" y="90.805" size="0.8128" layer="22" font="vector" rot="MR90">LED3K</text>
+<text x="40.3225" y="90.805" size="0.8128" layer="22" font="vector" rot="MR90">LED3A</text>
+<text x="37.7825" y="90.805" size="0.8128" layer="22" font="vector" rot="MR90">VALV4</text>
+<text x="35.2425" y="90.805" size="0.8128" layer="22" font="vector" rot="MR90">LED4K</text>
+<text x="32.7025" y="90.805" size="0.8128" layer="22" font="vector" rot="MR90">LED4A</text>
+<text x="85.09" y="8.89" size="2.54" layer="22" ratio="10" rot="MR0">LN2 Autofill Controller 2020-11-29</text>
 </plain>
 <libraries>
 <library name="AUmlib" urn="urn:adsk.eagle:library:9166017">
