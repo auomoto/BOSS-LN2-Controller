@@ -3,10 +3,10 @@
 <eagle version="9.6.2">
 <drawing>
 <settings>
-<setting alwaysvectorfont="yes"/>
+<setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -10133,8 +10133,8 @@ R2 3 2 {val-val*var/100}
 <part name="J8" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" deviceset="PHOENIX-3PIN-FEMALE" device="" package3d_urn="urn:adsk.eagle:package:16457226/2" value="Phoenix 1456116"/>
 <part name="JP2" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" deviceset="PINHD-1X2" device="MOLEX-02-VERT" package3d_urn="urn:adsk.eagle:package:16444314/3" value="MOLEX 53822112022"/>
 <part name="JP3" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" deviceset="PINHD-1X2" device="MOLEX-02-VERT" package3d_urn="urn:adsk.eagle:package:16444314/3" value="MOLEX 53822112022"/>
-<part name="R21" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:4021199/4" value="47K"/>
-<part name="R22" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:4021199/4" value="47K"/>
+<part name="R21" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:4021199/4" value="1.5K"/>
+<part name="R22" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:4021199/4" value="1.5K"/>
 <part name="R23" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:4021199/4" value="1.5K"/>
 <part name="R24" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:4021199/4" value="1.5K"/>
 <part name="R17" library="AUmlib" library_urn="urn:adsk.eagle:library:9166017" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:4021199/4" value="270R"/>
