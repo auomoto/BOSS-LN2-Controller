@@ -12,16 +12,15 @@ THINGS TO DO EVERY MINUTE
 void handle_minute(void)
 {
 
-	handle_ticks();
-	seconds = 0;
-
-	status.pressure = read_PRESSURE();				// LN2 pressure
+//	handle_ticks();
+//	seconds = 0;
+	minute = FALSE;
 
 	if (BLUVALVEOPEN) {
 		status.opentime_BLU++;
 		if (status.opentime_BLU > MAXOPENTIME) {	// MAX OPEN ERROR
 			CLOSEVALVE(BLUVALVE);
-			status.opentime_BLU = 0;
+//			status.opentime_BLU = 0;
 			status.maxopen_BLU = TRUE;
 		}
 	}
@@ -30,7 +29,7 @@ void handle_minute(void)
 		status.opentime_RED++;
 		if (status.opentime_RED > MAXOPENTIME) {	// MAX OPEN ERROR
 			CLOSEVALVE(REDVALVE);
-			status.opentime_RED = 0;
+//			status.opentime_RED = 0;
 			status.maxopen_RED = TRUE;
 		}
 	}
@@ -39,10 +38,8 @@ void handle_minute(void)
 		status.opentime_BUF++;
 		if (status.opentime_BUF > MAXOPENTIME) {	// MAX OPEN ERROR
 			CLOSEVALVE(BUFVALVE);
-			CLOSEVALVE(SUPVALVE);
-			status.opentime_BUF = 0;
+//			status.opentime_BUF = 0;
 			status.maxopen_BUF = TRUE;
-			status.opentime_SUP = 0;
 		}
 	}
 
@@ -52,7 +49,7 @@ void handle_minute(void)
 
 	status.next_fill--;
 	if (status.next_fill == 0) {
-		start_FILL();
+		start_FILL();						// See encoder.c
 	}
 }
 
@@ -64,32 +61,38 @@ void handle_ticks(void)
 
 	tick = FALSE;
 
-	if (BLUVALVEOPEN && !BLUTHERMWARM) {
+	if (seconds >= 60) {
+		minute = TRUE;
+		seconds = 0;
+	}
+	status.pressure = read_PRESSURE();		// LN2 pressure
+
+	if (BLUVALVEOPEN && !BLUTHERMWARM) {	// Valve open, therm cold
 		CLOSEVALVE(BLUVALVE);
-		if (screen_value == SCRVALVES) {
+		if ((screen_value == SCRVALVES) && timerOLED) {
 			display(SCRVALVES);
 		}
-		status.opentime_BLU = 0;
-		status.maxopen_BLU = FALSE;
+//		status.opentime_BLU = 0;
+//		status.maxopen_BLU = FALSE;
 	}
 
-	if (REDVALVEOPEN && !REDTHERMWARM) {
+	if (REDVALVEOPEN && !REDTHERMWARM) {	// Valve open, therm cold
 		CLOSEVALVE(REDVALVE);
-		if (screen_value == SCRVALVES) {
+		if ((screen_value == SCRVALVES) && timerOLED) {
 			display(SCRVALVES);
 		}
-		status.opentime_RED = 0;
-		status.maxopen_RED = FALSE;
+//		status.opentime_RED = 0;
+//		status.maxopen_RED = FALSE;
 	}
 
-	if (BUFVALVEOPEN && !BUFTHERMWARM) {
+	if (BUFVALVEOPEN && !BUFTHERMWARM) {	// Valve open, therm cold
 		CLOSEVALVE(BUFVALVE);
-		if (screen_value == SCRVALVES) {
+		if ((screen_value == SCRVALVES) && timerOLED) {
 			display(SCRVALVES);
 		}
-		status.buildpressure_time = 0;
-		status.opentime_BUF = 0;
-		status.maxopen_BUF = FALSE;
+//		status.buildpressure_time = 0;
+//		status.opentime_BUF = 0;
+//		status.maxopen_BUF = FALSE;
 	}
 
 	if (timerOLED) {
@@ -100,7 +103,6 @@ void handle_ticks(void)
 			timerOLED++;
 		}
 	}
-
 }
 
 /*----------------------------------------------------------------------
@@ -181,7 +183,6 @@ ISR(RTC_CNT_vect)
 	RTC.INTFLAGS = RTC_OVF_bm;		// Clear interrupt flag
 
 	seconds++;
-	minute = seconds/60;
 	tick = TRUE;
 
 }

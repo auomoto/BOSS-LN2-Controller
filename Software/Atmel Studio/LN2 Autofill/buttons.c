@@ -31,9 +31,9 @@ void handle_button(void)
 				CLOSEVALVE(BLUVALVE);
 			} else if (BLUENABLED) {
 				OPENVALVE(BLUVALVE);
+				status.opentime_BLU = 0;
+				status.maxopen_BLU = FALSE;
 			}
-			status.opentime_BLU = 0;
-			status.maxopen_BLU = FALSE;
 			break;
 
 		case REDBUTTON:
@@ -41,9 +41,9 @@ void handle_button(void)
 				CLOSEVALVE(REDVALVE);
 			} else if (REDENABLED) {
 				OPENVALVE(REDVALVE);
+				status.opentime_RED = 0;
+				status.maxopen_RED = FALSE;
 			}
-			status.opentime_RED = 0;
-			status.maxopen_RED = FALSE;
 			break;
 
 		case BUFFERBUTTON:
@@ -51,9 +51,9 @@ void handle_button(void)
 				CLOSEVALVE(BUFVALVE);
 			} else {
 				OPENVALVE(BUFVALVE);
+				status.opentime_BUF = 0;
+				status.maxopen_BUF = FALSE;
 			}
-			status.opentime_BUF = 0;
-			status.maxopen_BUF = FALSE;
 			break;
 
 		case SUPPLYBUTTON:
@@ -61,6 +61,7 @@ void handle_button(void)
 				CLOSEVALVE(SUPVALVE);
 			} else {
 				OPENVALVE(SUPVALVE);
+				status.opentime_SUP = 0;
 			}
 			break;
 

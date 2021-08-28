@@ -13,6 +13,9 @@ typedef struct {
 		length;			// Amount in the data buffer
 } USARTBuf;
 
+extern USARTBuf send0_buf, recv0_buf;
+
+void handle_serial(void);
 void init_USART(void);
 void send_USART(uint8_t*, uint8_t);
 

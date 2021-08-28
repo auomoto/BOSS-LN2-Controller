@@ -8,6 +8,7 @@
 
 void handle_button(void);
 void init_BUTTONS(void);
+
 extern volatile uint8_t button_pushed;
 
 #endif

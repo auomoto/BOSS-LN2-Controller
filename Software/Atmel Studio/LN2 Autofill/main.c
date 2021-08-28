@@ -3,6 +3,7 @@
 #include "buttons.h"
 #include "encoder.h"
 #include "rtc.h"
+#include "usart.h"
 
 int main(void)
 {
@@ -20,6 +21,9 @@ int main(void)
 		}
 		if (tick) {				// Things to do once a second
 			handle_ticks();		// See rtc.c
+		}
+		if (recv0_buf.done) {	// Serial communication received
+			handle_serial();	// See usart.c
 		}
 	}
 }

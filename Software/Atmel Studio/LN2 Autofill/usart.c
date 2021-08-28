@@ -1,7 +1,97 @@
 #include "globals.h"
+#include "valves.h"
+#include "timers.h"
+#include "eeprom.h"
 #include "usart.h"
 
 USARTBuf send0_buf, recv0_buf;
+
+/*------------------------------------------------------------------------------
+STATUS REPORT OVER SERIAL LINE
+	[0] - Supply valve status <O|C>
+	[1] - Buffer valve status <O|C|T>
+	[2] - Red dewar valve status <O|C|T|X>
+	[3] - Blue dewar valve status <O|C|T|X>
+	[4-6] - Fill interval in minutes
+------------------------------------------------------------------------------*/
+void handle_serial(void)
+{
+	char strbuf[81], tempstr[81];
+
+	recv0_buf.done = FALSE;
+
+	// Buffer dewar supply Valve
+	strcpy(strbuf, "SUP,");
+	if (SUPVALVEOPEN) {
+		strcat(strbuf, "O");
+	} else {
+		strcat(strbuf, "C");
+	}
+
+	// Buffer dewar vent valve
+	strcat(strbuf, ",BUF,");
+	if (status.maxopen_BUF) {
+		strcat(strbuf, "T");
+	} else if (BUFVALVEOPEN) {
+		strcat(strbuf, "O");
+	} else {
+		strcat(strbuf, "C");
+	}
+
+	// Red CCD vent valve
+	strcat(strbuf,",RED,");
+	if (!REDENABLED) {
+		strcat(strbuf, "D");
+	} else if (status.maxopen_RED) {
+		strcat(strbuf, "T");
+	} else if (REDVALVEOPEN) {
+		strcat(strbuf, "O");
+	} else {
+		strcat(strbuf, "C");
+	}
+
+	// Blue CCD vent valve
+	strcat(strbuf, ",BLU,");
+	if (!BLUENABLED) {
+		strcat(strbuf, "D");
+		} else if (status.maxopen_BLU) {
+		strcat(strbuf, "T");
+		} else if (BLUVALVEOPEN) {
+		strcat(strbuf, "O");
+		} else {
+		strcat(strbuf, "C");
+	}
+
+	// Fill interval
+	strcat(strbuf, ",INT,");
+	sprintf(tempstr, "%d", FILLINTERVAL);
+	strcat(strbuf, tempstr);
+
+	// Time to next fill
+	strcat(strbuf, ",NEXT,");
+	sprintf(tempstr, "%d", status.next_fill);
+	strcat(strbuf, tempstr);
+
+	// Max open time
+	strcat(strbuf, ",MAX,");
+	sprintf(tempstr, "%d", MAXOPENTIME);
+	strcat(strbuf, tempstr);	
+
+	// Pressure
+	strcat(strbuf, ",PRES,");
+	sprintf(tempstr, "%d", status.pressure);
+	strcat(strbuf, tempstr);
+
+	strcat(strbuf,"\r\n");
+	start_TCB0(100);			// 100 ms ticks
+	while (!send0_buf.done) {
+		if (ticks_TCB0 > 10) {	// See timers.h
+			return;
+		}
+		asm("nop");
+	}
+	send_USART((uint8_t*) strbuf, strlen(strbuf));
+}
 
 /*------------------------------------------------------------------------------
 void init_USART(void)

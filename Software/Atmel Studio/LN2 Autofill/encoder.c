@@ -308,17 +308,17 @@ void start_FILL(void)
 {
 	if (BLUENABLED) {
 		if (!BLUVALVEOPEN && BLUTHERMWARM) {
+			OPENVALVE(BLUVALVE);
 			status.opentime_BLU = 0;
 			status.maxopen_BLU = FALSE;
 		}
-		OPENVALVE(BLUVALVE);
 	}
 	if (REDENABLED) {
 		if (!REDVALVEOPEN && REDTHERMWARM) {
+			OPENVALVE(REDVALVE);
 			status.opentime_RED = 0;
 			status.maxopen_RED = FALSE;
 		}
-		OPENVALVE(REDVALVE);
 	}
 	if (screen_value == SCRVALVES) {
 		display(SCRVALVES);

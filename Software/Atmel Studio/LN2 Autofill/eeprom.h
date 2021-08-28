@@ -7,6 +7,7 @@
 #define MAXOPENADDR		(11)
 #define BLUENABLEADDR	(12)
 #define REDENABLEADDR	(13)
+
 #define BLUENABLED		(eeprom_read_byte((uint8_t *)BLUENABLEADDR))
 #define REDENABLED		(eeprom_read_byte((uint8_t *)REDENABLEADDR))
 #define FILLINTERVAL	(eeprom_read_byte((uint8_t *)FILLINTADDR))
