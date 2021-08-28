@@ -1,4 +1,4 @@
-init.d init.o: .././init.c .././globals.h \
+usart.d usart.o: .././usart.c .././globals.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
@@ -20,8 +20,7 @@ init.d init.o: .././init.c .././globals.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h \
- .././buttons.h .././eeprom.h .././oled.h .././rtc.h .././twi.h \
- .././valves.h .././encoder.h .././pressure.h .././usart.h .././init.h
+ .././usart.h
 
 .././globals.h:
 
@@ -67,22 +66,4 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h:
 
-.././buttons.h:
-
-.././eeprom.h:
-
-.././oled.h:
-
-.././rtc.h:
-
-.././twi.h:
-
-.././valves.h:
-
-.././encoder.h:
-
-.././pressure.h:
-
 .././usart.h:
-
-.././init.h:

@@ -161,4 +161,3 @@ void writestr_OLED(uint8_t displaynumber, char *str, uint8_t lineno)
 	display_off = FALSE;
 
 }
-

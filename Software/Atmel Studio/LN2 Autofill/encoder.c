@@ -173,22 +173,21 @@ void change_FILLINT(void)
 
 	while (encoder_sensed != ENCODERBUTTON) {
 		if (encoder_sensed == ENCODERA) {
-			if (encoder_value == 0) {
-				encoder_value = 1;
+			if (encoder_value <= 1) {
+				encoder_value = 2;
 				} else if (encoder_value == 255) {
 				encoder_value = 254;
 			}
-			if (encoder_value == 1) {
-				sprintf(strbuf, "%d minute", encoder_value);
-				} else {
-				sprintf(strbuf, "%d minutes", encoder_value);
-			}
+			sprintf(strbuf, "%d minutes", encoder_value);
 			writestr_OLED(0, "Push to set int", 1);
 			writestr_OLED(0, strbuf, 2);
 		}
 	}
 	encoder_sensed = FALSE;
 	eeprom_update_byte((uint8_t *)FILLINTADDR, encoder_value);
+	if (MAXOPENTIME >= FILLINTERVAL) {
+		eeprom_update_byte((uint8_t *)MAXOPENADDR, (FILLINTERVAL - 1));
+	}
 	display(SCRFILLINT);
 	
 }
@@ -217,6 +216,9 @@ void change_MAXOPENTIME(void)
 				encoder_value = 1;
 			} else if (encoder_value == 255) {
 				encoder_value = 254;
+			}
+			if (encoder_value >= FILLINTERVAL) {
+				encoder_value = FILLINTERVAL - 1;
 			}
 			if (encoder_value == 1) {
 				sprintf(strbuf, "%d minute", encoder_value);

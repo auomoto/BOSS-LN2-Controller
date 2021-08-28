@@ -7,6 +7,7 @@
 #include "valves.h"
 #include "encoder.h"
 #include "pressure.h"
+#include "usart.h"
 #include "init.h"
 
 void init_PORTS(void);
@@ -19,6 +20,7 @@ void init(void)
 	seconds = 0;
 	update_VERSION();
 	init_PORTS();
+	init_USART();
 	init_VALVES();
 	init_BUTTONS();
 	init_ENCODER();

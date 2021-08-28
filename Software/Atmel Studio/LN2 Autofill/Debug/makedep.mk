@@ -22,5 +22,7 @@ timers.c
 
 twi.c
 
+usart.c
+
 valves.c
 

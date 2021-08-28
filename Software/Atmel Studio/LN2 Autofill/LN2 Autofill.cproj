@@ -180,6 +180,12 @@
     <Compile Include="twi.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="usart.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="usart.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="valves.c">
       <SubType>compile</SubType>
     </Compile>

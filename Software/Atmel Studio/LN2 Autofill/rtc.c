@@ -92,17 +92,6 @@ void handle_ticks(void)
 		status.maxopen_BUF = FALSE;
 	}
 
-	if (SUPVALVEOPEN && !BUFVALVEOPEN) {
-		status.buildpressure_time++;
-		if (status.buildpressure_time > BUILDPRESSURETIME) {
-			CLOSEVALVE(SUPVALVE);
-			if (screen_value == SCRVALVES) {
-				display(SCRVALVES);
-			}
-			status.buildpressure_time = 0;
-		}
-	}
-
 	if (timerOLED) {
 		if (timerOLED > timeoutOLED) {	// Display timeout
 			clear_OLED(0);
