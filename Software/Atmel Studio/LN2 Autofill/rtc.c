@@ -12,15 +12,12 @@ THINGS TO DO EVERY MINUTE
 void handle_minute(void)
 {
 
-//	handle_ticks();
-//	seconds = 0;
 	minute = FALSE;
 
 	if (BLUVALVEOPEN) {
 		status.opentime_BLU++;
 		if (status.opentime_BLU > MAXOPENTIME) {	// MAX OPEN ERROR
 			CLOSEVALVE(BLUVALVE);
-//			status.opentime_BLU = 0;
 			status.maxopen_BLU = TRUE;
 		}
 	}
@@ -29,16 +26,14 @@ void handle_minute(void)
 		status.opentime_RED++;
 		if (status.opentime_RED > MAXOPENTIME) {	// MAX OPEN ERROR
 			CLOSEVALVE(REDVALVE);
-//			status.opentime_RED = 0;
 			status.maxopen_RED = TRUE;
 		}
 	}
 
 	if (BUFVALVEOPEN) {
 		status.opentime_BUF++;
-		if (status.opentime_BUF > MAXOPENTIME) {	// MAX OPEN ERROR
+		if (status.opentime_BUF > BUFMAXOPEN) {	// MAX OPEN ERROR
 			CLOSEVALVE(BUFVALVE);
-//			status.opentime_BUF = 0;
 			status.maxopen_BUF = TRUE;
 		}
 	}
@@ -96,7 +91,8 @@ void handle_ticks(void)
 	}
 
 	if (timerOLED) {
-		if (timerOLED > timeoutOLED) {	// Display timeout
+//		if (timerOLED > timeoutOLED) {	// Display timeout
+		if (timerOLED > OLEDTIMEOUT) {	// Display timeout
 			clear_OLED(0);
 			timerOLED = 0;
 		} else {

@@ -4,6 +4,7 @@
 #include "oled.h"
 #include "valves.h"
 
+
 volatile uint8_t encoder_sensed, encoder_value, screen_value;
 volatile int8_t encoder_change;
 
@@ -18,7 +19,7 @@ void display(uint8_t value)
 	char line1[21], line2[21];
 
 	switch (value) {
-		case SCRVERSION:
+		case SCRVERSION:						// See encoder.h
 			strcpy(line1, "  LN2 Autofill");
 			get_VERSION(status.version);
 			strcpy(line2, "   ");
@@ -26,23 +27,23 @@ void display(uint8_t value)
 			screen_value = SCRVERSION;
 			break;
 	
-		case SCRVALVES:
+		case SCRVALVES:							// encoder.h
 			strcpy(line1, "SUP BUF RED BLU");
-			if (SUPVALVEOPEN) {
+			if (SUPVALVEOPEN) {					// valves.h
 				strcpy(line2, " O  ");
 			} else {
 				strcpy(line2, " C  ");
 			}
-			if (BUFVALVEOPEN) {
+			if (BUFVALVEOPEN) {					// valves.h
 				strcat(line2, " O  ");
 			} else if (status.maxopen_BUF) {
 				strcat(line2, " T  ");
 			} else {
 				strcat(line2, " C  ");
 			}
-			if (!REDENABLED) {
+			if (!REDENABLED) {					// eeprom.h
 				strcat(line2, " X  ");
-			} else if (REDVALVEOPEN) {
+			} else if (REDVALVEOPEN) {			// valves.h
 				strcat(line2, " O  ");
 			} else if (status.maxopen_RED) {
 				strcat(line2, " T  ");
@@ -51,14 +52,14 @@ void display(uint8_t value)
 			}
 			if (!BLUENABLED) {
 				strcat(line2, " X");
-			} else if (BLUVALVEOPEN) {
+			} else if (BLUVALVEOPEN) {			// valves.h
 				strcat(line2, " O");
 			} else if (status.maxopen_BLU) {
 				strcat(line2, " T");
 			} else {
 				strcat(line2, " C");
 			}
-			screen_value = SCRVALVES;
+			screen_value = SCRVALVES;			// encoder.h
 			break;
 
 		case SCRNEXTFILL:
@@ -68,61 +69,61 @@ void display(uint8_t value)
 			} else {
 				sprintf(line2, "%d minutes", status.next_fill);
 			}
-			screen_value = SCRNEXTFILL;
+			screen_value = SCRNEXTFILL;			// encoder.h
 			break;
 
 		case SCRFILLINT:
 			strcpy(line1, "Fill interval");
-			if (FILLINTERVAL == 1) {
+			if (FILLINTERVAL == 1) {			// eeprom.h
 				sprintf(line2, "%d minute", FILLINTERVAL);
 			} else {
 				sprintf(line2, "%d minutes", FILLINTERVAL);
 			}
-			screen_value = SCRFILLINT;
+			screen_value = SCRFILLINT;			// encoder.h
 			break;
 			
-		case SCRMAXOPENTIME:
+		case SCRMAXOPENTIME:					// encoder.h
 			strcpy(line1, "Max open time");
-			if (MAXOPENTIME < 2) {
+			if (MAXOPENTIME < 2) {				// eeprom.h
 				sprintf(line2, "%d minute", MAXOPENTIME);
 			} else {
 				sprintf(line2, "%d minutes", MAXOPENTIME);
 			}
-			screen_value = SCRMAXOPENTIME;
+			screen_value = SCRMAXOPENTIME;		// encoder.h
 			break;
 
-		case SCRPRESSURE:
+		case SCRPRESSURE:						// encoder.h
 			strcpy(line1, "LN2 pressure");
 			sprintf(line2, "%d kPa", status.pressure);
 			screen_value = SCRPRESSURE;
 			break;
 
-		case SCRDISABLEBLU:
-			if (BLUENABLED) {
+		case SCRDISABLEBLU:						// encoder.h
+			if (BLUENABLED) {					// eeprom.h
 				strcpy(line1, "BLUE is ENABLED");
 				strcpy(line2, "Push to disable");
 			} else {
 				strcpy(line1, "Blue is DISABLED");
 				strcpy(line2, "Push to enable");
 			}
-			screen_value = SCRDISABLEBLU;
+			screen_value = SCRDISABLEBLU;		// encoder.h
 			break;
 
-		case SCRDISABLERED:
-			if (REDENABLED) {
+		case SCRDISABLERED:						// encoder.h
+			if (REDENABLED) {					// eeprom.h
 				strcpy(line1, "RED is ENABLED");
 				strcpy(line2, "Push to disable");
 			} else {
 				strcpy(line1, "RED is DISABLED");
 				strcpy(line2, "Push to enable");
 			}
-			screen_value = SCRDISABLERED;
+			screen_value = SCRDISABLERED;		// encoder.h
 			break;
 
 		default:
 			strcpy(line1, "default");
 			strcpy(line2, "overrun");
-			screen_value = SCRVERSION;
+			screen_value = SCRVERSION;			// encoder.h
 			break;
 	}
 	writestr_OLED(0, line1, 1);
@@ -138,7 +139,7 @@ void change_DISABLEBLU(void)
 {
 	eeprom_update_byte((uint8_t *)BLUENABLEADDR, !BLUENABLED);
 	encoder_sensed = FALSE;
-	display(SCRDISABLEBLU);
+	display(SCRDISABLEBLU);						// encoder.h
 }
 
 /*----------------------------------------------------------------------
@@ -150,19 +151,19 @@ void change_DISABLERED(void)
 {
 	eeprom_update_byte((uint8_t *)REDENABLEADDR, !REDENABLED);
 	encoder_sensed = FALSE;
-	display(SCRDISABLERED);
+	display(SCRDISABLERED);						// encoder.h
 }
 
 /*----------------------------------------------------------------------
 CHANGE FILL INTERVAL
-	Pushing the knob allows you to change the fill interval in minutes.
-	Push the knob again to save the new value.
+	Pushing the knob lets you change the fill interval in minutes. Push
+	the knob again to save the value.
 ----------------------------------------------------------------------*/
 void change_FILLINT(void)
 {
 	char strbuf[21];
 
-	encoder_value = FILLINTERVAL;
+	encoder_value = FILLINTERVAL;				// eeprom.h
 	if (encoder_value == 1) {
 		sprintf(strbuf, "%d minute", encoder_value);
 		} else {
@@ -171,7 +172,7 @@ void change_FILLINT(void)
 	writestr_OLED(0, "Push to set intv", 1);
 	writestr_OLED(0, strbuf, 2);
 
-	while (encoder_sensed != ENCODERBUTTON) {
+	while (encoder_sensed != ENCODERBUTTON) {	// encoder.h
 		if (encoder_sensed == ENCODERA) {
 			if (encoder_value <= 1) {
 				encoder_value = 2;
@@ -189,7 +190,6 @@ void change_FILLINT(void)
 		eeprom_update_byte((uint8_t *)MAXOPENADDR, (FILLINTERVAL - 1));
 	}
 	display(SCRFILLINT);
-	
 }
 
 /*----------------------------------------------------------------------
@@ -201,7 +201,7 @@ void change_MAXOPENTIME(void)
 {
 	char strbuf[21];
 
-	encoder_value = MAXOPENTIME;
+	encoder_value = MAXOPENTIME;			// eeprom.h
 	if (encoder_value == 1) {
 		sprintf(strbuf, "%d minute", encoder_value);
 		} else {

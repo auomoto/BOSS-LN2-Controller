@@ -14,7 +14,7 @@ oled.c
 #include "twi.h"
 #include "oled.h"
 
-uint16_t timerOLED, timeoutOLED;	// Used to turn off the display
+uint16_t timerOLED;	//, timeoutOLED;	// Used to turn off the display
 uint8_t display_off;
 
 /*------------------------------------------------------------------------------
@@ -95,7 +95,7 @@ void init_OLED(uint8_t displaynumber)
 	_delay_ms(100);				// Wait after display-on command
 
 	timerOLED = 0;
-	timeoutOLED = 5;
+//	timeoutOLED = 5;
 
 }
 
@@ -148,7 +148,6 @@ void writestr_OLED(uint8_t displaynumber, char *str, uint8_t lineno)
 
 	if (lineno == 1) {
 		write_OLED(twiaddr, OLEDCMD, OLEDLINE1);
-
 	} else {
 		write_OLED(twiaddr, OLEDCMD, OLEDLINE2);
 	}

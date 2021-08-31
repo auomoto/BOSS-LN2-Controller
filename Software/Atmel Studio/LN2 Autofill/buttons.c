@@ -1,7 +1,8 @@
 /*----------------------------------------------------------------------
-PUSHBUTTONS
-	Four pushbutton switches with LED indicators control the solenoid
-	valves.
+PUSHBUTTONS ON THE FRONT PANEL
+	Four momentary contact pushbutton switches with LED indicators
+	control the solenoid valves. Each button push toggles the valve
+	state.
 
 	PB2 is SW1 Blue dewar vent
 	PB3 is SW2 Red dewar vent
@@ -27,7 +28,7 @@ void handle_button(void)
 {
 	switch (button_pushed) {
 		case BLUEBUTTON:
-			if (BLUVALVEOPEN) {
+			if (BLUVALVEOPEN) {				// See valves.h
 				CLOSEVALVE(BLUVALVE);
 			} else if (BLUENABLED) {
 				OPENVALVE(BLUVALVE);
@@ -37,7 +38,7 @@ void handle_button(void)
 			break;
 
 		case REDBUTTON:
-			if (REDVALVEOPEN) {
+			if (REDVALVEOPEN) {				// See valves.h
 				CLOSEVALVE(REDVALVE);
 			} else if (REDENABLED) {
 				OPENVALVE(REDVALVE);
@@ -47,7 +48,7 @@ void handle_button(void)
 			break;
 
 		case BUFFERBUTTON:
-			if (BUFVALVEOPEN) {
+			if (BUFVALVEOPEN) {				// See valves.h
 				CLOSEVALVE(BUFVALVE);
 			} else {
 				OPENVALVE(BUFVALVE);
@@ -57,7 +58,7 @@ void handle_button(void)
 			break;
 
 		case SUPPLYBUTTON:
-			if (SUPVALVEOPEN) {
+			if (SUPVALVEOPEN) {				// See valves.h
 				CLOSEVALVE(SUPVALVE);
 			} else {
 				OPENVALVE(SUPVALVE);
@@ -82,7 +83,7 @@ INITIALIZE BUTTON PINS
 ----------------------------------------------------------------------*/
 void init_BUTTONS(void)
 {
-	// Four solenoid valve control switches
+	// Four solenoid valve control buttons
 	PORTB.PIN2CTRL = PORT_PULLUPEN_bm | PORT_ISC_FALLING_gc;	// SW1
 	PORTB.PIN3CTRL = PORT_PULLUPEN_bm | PORT_ISC_FALLING_gc;	// SW2
 	PORTB.PIN0CTRL = PORT_PULLUPEN_bm | PORT_ISC_FALLING_gc;	// SW3
