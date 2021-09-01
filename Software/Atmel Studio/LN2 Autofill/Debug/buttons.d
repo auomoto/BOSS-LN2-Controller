@@ -20,7 +20,7 @@ buttons.d buttons.o: .././buttons.c .././globals.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h \
- .././buttons.h .././valves.h .././encoder.h .././eeprom.h
+ .././buttons.h .././valves.h .././oled.h .././encoder.h .././eeprom.h
 
 .././globals.h:
 
@@ -69,6 +69,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\
 .././buttons.h:
 
 .././valves.h:
+
+.././oled.h:
 
 .././encoder.h:
 

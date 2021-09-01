@@ -16,7 +16,7 @@ void handle_minute(void)
 
 	if (BLUVALVEOPEN) {
 		status.opentime_BLU++;
-		if (status.opentime_BLU > MAXOPENTIME) {	// MAX OPEN ERROR
+		if (status.opentime_BLU >= MAXOPENTIME) {	// MAX OPEN ERROR
 			CLOSEVALVE(BLUVALVE);
 			status.maxopen_BLU = TRUE;
 		}
@@ -24,7 +24,7 @@ void handle_minute(void)
 
 	if (REDVALVEOPEN) {
 		status.opentime_RED++;
-		if (status.opentime_RED > MAXOPENTIME) {	// MAX OPEN ERROR
+		if (status.opentime_RED >= MAXOPENTIME) {	// MAX OPEN ERROR
 			CLOSEVALVE(REDVALVE);
 			status.maxopen_RED = TRUE;
 		}
@@ -32,7 +32,7 @@ void handle_minute(void)
 
 	if (BUFVALVEOPEN) {
 		status.opentime_BUF++;
-		if (status.opentime_BUF > BUFMAXOPEN) {	// MAX OPEN ERROR
+		if (status.opentime_BUF >= BUFMAXOPEN) {	// MAX OPEN ERROR
 			CLOSEVALVE(BUFVALVE);
 			status.maxopen_BUF = TRUE;
 		}

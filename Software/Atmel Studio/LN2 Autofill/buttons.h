@@ -6,6 +6,7 @@
 #define BUFFERBUTTON	3
 #define SUPPLYBUTTON	4
 
+void disp_coldtherm(void);
 void handle_button(void);
 void init_BUTTONS(void);
 

@@ -18,10 +18,9 @@ void init(void)
 
 	minute = FALSE;
 	seconds = 0;
-	update_VERSION();
 	init_PORTS();
-	init_USART();
 	init_VALVES();
+	init_USART();
 	init_BUTTONS();
 	init_ENCODER();
 	init_TWI();
@@ -29,6 +28,7 @@ void init(void)
 	init_ADC();
 	init_STATUS();
 	init_OLED(0);
+	update_VERSION();
 	display(SCRVERSION);
 
 }
@@ -50,7 +50,7 @@ void init_STATUS()
 
 void init_PORTS(void)
 {
-
+/*
 	PORTA.PIN0CTRL = PORT_PULLUPEN_bm;
 	PORTA.PIN1CTRL = PORT_PULLUPEN_bm;
 	PORTA.PIN2CTRL = PORT_PULLUPEN_bm;
@@ -75,7 +75,7 @@ void init_PORTS(void)
 	PORTC.PIN5CTRL = PORT_PULLUPEN_bm;
 	PORTC.PIN6CTRL = PORT_PULLUPEN_bm;
 	PORTC.PIN7CTRL = PORT_PULLUPEN_bm;
-
+*/
 	// ADC pins are on port D
 	PORTD.PIN0CTRL = PORT_ISC_INPUT_DISABLE_gc;
 	PORTD.PIN1CTRL = PORT_ISC_INPUT_DISABLE_gc;
@@ -85,7 +85,7 @@ void init_PORTS(void)
 	PORTD.PIN5CTRL = PORT_ISC_INPUT_DISABLE_gc;
 	PORTD.PIN6CTRL = PORT_ISC_INPUT_DISABLE_gc;
 	PORTD.PIN7CTRL = PORT_ISC_INPUT_DISABLE_gc;
-
+/*
 	PORTE.PIN0CTRL = PORT_PULLUPEN_bm;
 	PORTE.PIN1CTRL = PORT_PULLUPEN_bm;
 	PORTE.PIN2CTRL = PORT_PULLUPEN_bm;
@@ -98,5 +98,5 @@ void init_PORTS(void)
 	PORTF.PIN4CTRL = PORT_PULLUPEN_bm;
 	PORTF.PIN5CTRL = PORT_PULLUPEN_bm;
 	PORTF.PIN6CTRL = PORT_PULLUPEN_bm;
-
+*/
 }

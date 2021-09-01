@@ -7,7 +7,7 @@
 #define OLEDDATA		0x40		// Newhaven command was 0
 #define OLEDLINE1		0x80		// Newhaven command
 #define OLEDLINE2		0xC0		// Newhaven command
-#define OLEDTIMEOUT		20			// Seconds before turning it off
+#define OLEDTIMEOUT		10			// Seconds before turning it off
 
 void clear_OLED(uint8_t);
 void init_OLED(uint8_t);

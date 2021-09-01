@@ -13,10 +13,18 @@ PUSHBUTTONS ON THE FRONT PANEL
 #include "globals.h"
 #include "buttons.h"
 #include "valves.h"
+#include "oled.h"
 #include "encoder.h"	// For SCRVALVES
 #include "eeprom.h"		// RED/BLUENABLE, FILLINTERVAL, MAXOPENTIME
 
 volatile uint8_t button_pushed;
+
+void disp_coldtherm(void)
+{
+	clear_OLED(0);
+	writestr_OLED(0, "Sensor cold or", 1);
+	writestr_OLED(0, "cable unplugged", 2);
+}
 
 /*----------------------------------------------------------------------
 BUTTONS
@@ -30,30 +38,42 @@ void handle_button(void)
 		case BLUEBUTTON:
 			if (BLUVALVEOPEN) {				// See valves.h
 				CLOSEVALVE(BLUVALVE);
-			} else if (BLUENABLED) {
+			} else if (BLUENABLED && BLUTHERMWARM) {
 				OPENVALVE(BLUVALVE);
 				status.opentime_BLU = 0;
 				status.maxopen_BLU = FALSE;
+			} else if (BLUENABLED && !BLUTHERMWARM) {
+				disp_coldtherm();
+				_delay_ms(2000);
+				display(screen_value);
 			}
 			break;
 
 		case REDBUTTON:
 			if (REDVALVEOPEN) {				// See valves.h
 				CLOSEVALVE(REDVALVE);
-			} else if (REDENABLED) {
+			} else if (REDENABLED && REDTHERMWARM) {
 				OPENVALVE(REDVALVE);
 				status.opentime_RED = 0;
 				status.maxopen_RED = FALSE;
+			} else if (REDENABLED && !REDTHERMWARM) {
+				disp_coldtherm();
+				_delay_ms(2000);
+				display(screen_value);
 			}
 			break;
 
 		case BUFFERBUTTON:
 			if (BUFVALVEOPEN) {				// See valves.h
 				CLOSEVALVE(BUFVALVE);
-			} else {
+			} else if (BUFTHERMWARM) {
 				OPENVALVE(BUFVALVE);
 				status.opentime_BUF = 0;
 				status.maxopen_BUF = FALSE;
+			} else if (!BUFTHERMWARM) {
+				disp_coldtherm();
+				_delay_ms(2000);
+				display(screen_value);
 			}
 			break;
 

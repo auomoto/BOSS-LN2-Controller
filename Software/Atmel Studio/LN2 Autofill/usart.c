@@ -41,7 +41,7 @@ void handle_serial(void)
 	// Red CCD vent valve
 	strcat(strbuf,",RED,");
 	if (!REDENABLED) {
-		strcat(strbuf, "D");
+		strcat(strbuf, "X");
 	} else if (status.maxopen_RED) {
 		strcat(strbuf, "T");
 	} else if (REDVALVEOPEN) {
@@ -53,7 +53,7 @@ void handle_serial(void)
 	// Blue CCD vent valve
 	strcat(strbuf, ",BLU,");
 	if (!BLUENABLED) {
-		strcat(strbuf, "D");
+		strcat(strbuf, "X");
 		} else if (status.maxopen_BLU) {
 		strcat(strbuf, "T");
 		} else if (BLUVALVEOPEN) {
@@ -81,6 +81,26 @@ void handle_serial(void)
 	strcat(strbuf, ",PRES,");
 	sprintf(tempstr, "%d", status.pressure);
 	strcat(strbuf, tempstr);
+
+	// Thermistors
+	strcat(strbuf, ",TBUF,");
+	if (BUFTHERMWARM) {
+		strcat(strbuf, "H");
+	} else {
+		strcat(strbuf, "C");
+	}
+	strcat(strbuf, ",TRED,");
+	if (REDTHERMWARM) {
+		strcat(strbuf, "H");
+	} else {
+		strcat(strbuf, "C");
+	}
+	strcat(strbuf, ",TBLU,");
+	if (BLUTHERMWARM) {
+		strcat(strbuf, "H");
+	} else {
+		strcat(strbuf, "C");
+	}
 
 	strcat(strbuf,"\r\n");
 	start_TCB0(100);			// 100 ms ticks

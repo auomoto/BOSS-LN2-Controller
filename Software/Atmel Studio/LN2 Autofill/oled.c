@@ -51,7 +51,7 @@ void init_OLED(uint8_t displaynumber)
 
 	PORTA.OUTCLR = PIN7_bm;		// PA7 is the /RESET pin for the OLED display
 	PORTA.DIRSET = PIN7_bm;
-	_delay_ms(1);				// Reset time
+	_delay_ms(5);				// Reset time (was 1 ms)
 	PORTA.OUTSET = PIN7_bm;
 
 	if (displaynumber == 0) {
