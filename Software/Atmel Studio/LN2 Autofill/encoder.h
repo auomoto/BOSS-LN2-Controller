@@ -1,6 +1,8 @@
 #ifndef ENCODER_H
 #define ENCODER_H
 
+#include "globals.h"
+
 #define ENCODERBUTTON	5
 #define ENCODERA		7
 #define SCRVERSION		0

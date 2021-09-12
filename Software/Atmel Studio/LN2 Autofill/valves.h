@@ -11,7 +11,7 @@
 #define REDVALVEOPEN	(PORTC.IN & PIN6_bm)
 #define BUFVALVEOPEN	(PORTC.IN & PIN5_bm)
 #define SUPVALVEOPEN	(PORTC.IN & PIN4_bm)
-#define BUFMAXOPEN		10			// In minutes
+#define BUFMAXOPEN		120						// In minutes
 
 // Thermistor pins
 #define BLUTHERMWARM	(PORTE.IN & PIN0_bm)	// TRUE if the thermistor is warm

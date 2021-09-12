@@ -102,7 +102,7 @@ void handle_serial(void)
 		strcat(strbuf, "C");
 	}
 
-	strcat(strbuf,"\r\n");
+	strcat(strbuf,"\r");
 	start_TCB0(100);			// 100 ms ticks
 	while (!send0_buf.done) {
 		if (ticks_TCB0 > 10) {	// See timers.h

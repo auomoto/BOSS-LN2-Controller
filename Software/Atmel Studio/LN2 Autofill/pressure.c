@@ -1,3 +1,5 @@
+#include "encoder.h"		// SCRPRESSURE, display()
+#include "oled.h"			// display_off
 #include "pressure.h"
 
 /*----------------------------------------------------------------------
@@ -64,6 +66,10 @@ uint8_t read_PRESSURE(void)
 	value = PSSLOPE * (value/((float)nsamples)) + PSINTERCEPT;
 	if (value < 0.0) {
 		value = 0.0;
+	}
+
+	if (!display_off && (screen_value == SCRPRESSURE)) {
+		display(screen_value);
 	}
 
 	return ((uint8_t)(value+0.5));

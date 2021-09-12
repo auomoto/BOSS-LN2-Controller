@@ -2,7 +2,7 @@
 #define GLOBALS_H
 
 #define F_CPU		3333333UL
-#define VERSION		"2021-08-25"		// Must be exactly 10 characters
+#define VERSION		"2021-09-02"		// Must be exactly 10 characters
 #define FALSE		0
 #define TRUE		1
 

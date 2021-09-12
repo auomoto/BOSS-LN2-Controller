@@ -32,14 +32,14 @@ void handle_minute(void)
 
 	if (BUFVALVEOPEN) {
 		status.opentime_BUF++;
-		if (status.opentime_BUF >= BUFMAXOPEN) {	// MAX OPEN ERROR
+		if (status.opentime_BUF >= BUFMAXOPEN) {	// valves.h MAX OPEN ERROR
 			CLOSEVALVE(BUFVALVE);
 			status.maxopen_BUF = TRUE;
 		}
 	}
 
 	if (SUPVALVEOPEN) {
-		status.opentime_SUP++;				// Increment supply dewar time
+		status.opentime_SUP++;				// Increment supply dewar valve time
 	}
 
 	status.next_fill--;
