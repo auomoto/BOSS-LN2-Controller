@@ -54,12 +54,16 @@ THINGS TO DO EVERY SECOND
 void handle_ticks(void)
 {
 
+	static uint8_t oldpressure;
+
 	tick = FALSE;
 
 	if (seconds >= 60) {
 		minute = TRUE;
 		seconds = 0;
 	}
+
+	oldpressure = status.pressure;
 	status.pressure = read_PRESSURE();		// LN2 pressure
 
 	if (BLUVALVEOPEN && !BLUTHERMWARM) {	// Valve open, therm cold
@@ -98,6 +102,11 @@ void handle_ticks(void)
 		} else {
 			timerOLED++;
 		}
+	}
+
+	// Update display if the pressure changed
+	if ((status.pressure != oldpressure) && !display_off) {
+		display(SCRPRESSURE);
 	}
 }
 
