@@ -44,6 +44,9 @@ void init_STATUS()
 	status.maxopen_BLU = FALSE;		// TRUE when open too long
 	status.maxopen_RED = FALSE;
 	status.maxopen_BUF = FALSE;
+	status.overfill_BUF = 0;
+	status.overfill_BLU = 0;
+	status.overfill_RED = 0;
 	status.pressure = read_PRESSURE();
 
 }

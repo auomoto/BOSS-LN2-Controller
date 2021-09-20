@@ -19,6 +19,8 @@ struct statusbuf {
 		opentime_BUF, opentime_SUP,		// Minutes that valve has been open
 		maxopen_BLU, maxopen_RED,		// TRUE if MAXOPENTIME is exceeded
 		maxopen_BUF,					// TRUE if MAXOPENTIME is exceeded
+		overfill_BUF,					// Seconds after thermistor gets cold
+		overfill_BLU, overfill_RED,		// Seconds after thermistor gets cold
 		next_fill,						// Minutes until next fill
 		buildpressure_time,				// Seconds to build LN2 pressure
 		pressure;						// LN2 pressure in kPa
