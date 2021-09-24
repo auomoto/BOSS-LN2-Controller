@@ -12,7 +12,7 @@
 #define BUFVALVEOPEN	(PORTC.IN & PIN5_bm)
 #define SUPVALVEOPEN	(PORTC.IN & PIN4_bm)
 #define BUFMAXOPEN		120						// In minutes
-#define OVERFILLBUF		5						// In seconds
+#define OVERFILLBUF		15						// In seconds
 #define OVERFILLBLU		10						// In seconds
 #define OVERFILLRED		10						// In seconds
 

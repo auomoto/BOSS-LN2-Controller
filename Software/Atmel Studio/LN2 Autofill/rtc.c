@@ -64,10 +64,10 @@ void handle_ticks(void)
 	}
 
 	oldpressure = status.pressure;
-	status.pressure = read_PRESSURE();		// LN2 pressure
+	status.pressure = read_PRESSURE();				// LN2 pressure
 
-	if (BLUVALVEOPEN && !BLUTHERMWARM) {	// Valve open, therm cold
-		if (status.overfill_BLU >= OVERFILLBLU) {	// Wait overill time
+	if (BLUVALVEOPEN && !BLUTHERMWARM) {			// Valve open, therm cold
+		if (status.overfill_BLU >= OVERFILLBLU) {	// valves.h
 			CLOSEVALVE(BLUVALVE);
 			status.overfill_BLU = 0;
 		} else {
@@ -80,8 +80,8 @@ void handle_ticks(void)
 //		status.maxopen_BLU = FALSE;
 	}
 
-	if (REDVALVEOPEN && !REDTHERMWARM) {	// Valve open, therm cold
-		if (status.overfill_RED >= OVERFILLRED) {
+	if (REDVALVEOPEN && !REDTHERMWARM) {			// Valve open, therm cold
+		if (status.overfill_RED >= OVERFILLRED) {	// valves.h
 			CLOSEVALVE(REDVALVE);
 			status.overfill_RED = 0;
 		} else {
@@ -94,8 +94,8 @@ void handle_ticks(void)
 //		status.maxopen_RED = FALSE;
 	}
 
-	if (BUFVALVEOPEN && !BUFTHERMWARM) {	// Valve open, therm cold
-		if (status.overfill_BUF >= OVERFILLBUF) {
+	if (BUFVALVEOPEN && !BUFTHERMWARM) {			// Valve open, therm cold
+		if (status.overfill_BUF >= OVERFILLBUF) {	// valves.h
 			CLOSEVALVE(BUFVALVE);
 			status.overfill_BUF = 0;
 		} else {

@@ -2900,18 +2900,18 @@ void handle_ticks(void)
     11da:	d8 e2       	ldi	r29, 0x28	; 40
     11dc:	8f 89       	ldd	r24, Y+23	; 0x17
     11de:	80 93 00 28 	sts	0x2800, r24	; 0x802800 <__DATA_REGION_ORIGIN__>
-	status.pressure = read_PRESSURE();		// LN2 pressure
+	status.pressure = read_PRESSURE();				// LN2 pressure
     11e2:	0e 94 2a 08 	call	0x1054	; 0x1054 <read_PRESSURE>
     11e6:	8f 8b       	std	Y+23, r24	; 0x17
 
-	if (BLUVALVEOPEN && !BLUTHERMWARM) {	// Valve open, therm cold
+	if (BLUVALVEOPEN && !BLUTHERMWARM) {			// Valve open, therm cold
     11e8:	80 91 48 04 	lds	r24, 0x0448	; 0x800448 <__TEXT_REGION_LENGTH__+0x7f4448>
     11ec:	88 23       	and	r24, r24
     11ee:	f4 f4       	brge	.+60     	; 0x122c <handle_ticks+0x6e>
     11f0:	80 91 88 04 	lds	r24, 0x0488	; 0x800488 <__TEXT_REGION_LENGTH__+0x7f4488>
     11f4:	80 fd       	sbrc	r24, 0
     11f6:	1a c0       	rjmp	.+52     	; 0x122c <handle_ticks+0x6e>
-		if (status.overfill_BLU >= OVERFILLBLU) {	// Wait overill time
+		if (status.overfill_BLU >= OVERFILLBLU) {	// valves.h
     11f8:	80 91 18 28 	lds	r24, 0x2818	; 0x802818 <status+0x13>
     11fc:	8a 30       	cpi	r24, 0x0A	; 10
     11fe:	30 f0       	brcs	.+12     	; 0x120c <handle_ticks+0x4e>
@@ -2942,14 +2942,14 @@ void handle_ticks(void)
 //		status.maxopen_BLU = FALSE;
 	}
 
-	if (REDVALVEOPEN && !REDTHERMWARM) {	// Valve open, therm cold
+	if (REDVALVEOPEN && !REDTHERMWARM) {			// Valve open, therm cold
     122c:	80 91 48 04 	lds	r24, 0x0448	; 0x800448 <__TEXT_REGION_LENGTH__+0x7f4448>
     1230:	86 ff       	sbrs	r24, 6
     1232:	1f c0       	rjmp	.+62     	; 0x1272 <handle_ticks+0xb4>
     1234:	80 91 88 04 	lds	r24, 0x0488	; 0x800488 <__TEXT_REGION_LENGTH__+0x7f4488>
     1238:	81 fd       	sbrc	r24, 1
     123a:	1b c0       	rjmp	.+54     	; 0x1272 <handle_ticks+0xb4>
-		if (status.overfill_RED >= OVERFILLRED) {
+		if (status.overfill_RED >= OVERFILLRED) {	// valves.h
     123c:	80 91 19 28 	lds	r24, 0x2819	; 0x802819 <status+0x14>
     1240:	8a 30       	cpi	r24, 0x0A	; 10
     1242:	30 f0       	brcs	.+12     	; 0x1250 <handle_ticks+0x92>
@@ -2981,16 +2981,16 @@ void handle_ticks(void)
 //		status.maxopen_RED = FALSE;
 	}
 
-	if (BUFVALVEOPEN && !BUFTHERMWARM) {	// Valve open, therm cold
+	if (BUFVALVEOPEN && !BUFTHERMWARM) {			// Valve open, therm cold
     1272:	80 91 48 04 	lds	r24, 0x0448	; 0x800448 <__TEXT_REGION_LENGTH__+0x7f4448>
     1276:	85 ff       	sbrs	r24, 5
     1278:	1e c0       	rjmp	.+60     	; 0x12b6 <handle_ticks+0xf8>
     127a:	80 91 88 04 	lds	r24, 0x0488	; 0x800488 <__TEXT_REGION_LENGTH__+0x7f4488>
     127e:	82 fd       	sbrc	r24, 2
     1280:	1a c0       	rjmp	.+52     	; 0x12b6 <handle_ticks+0xf8>
-		if (status.overfill_BUF >= OVERFILLBUF) {
+		if (status.overfill_BUF >= OVERFILLBUF) {	// valves.h
     1282:	80 91 17 28 	lds	r24, 0x2817	; 0x802817 <status+0x12>
-    1286:	85 30       	cpi	r24, 0x05	; 5
+    1286:	8f 30       	cpi	r24, 0x0F	; 15
     1288:	30 f0       	brcs	.+12     	; 0x1296 <handle_ticks+0xd8>
 			CLOSEVALVE(BUFVALVE);
     128a:	80 e2       	ldi	r24, 0x20	; 32
@@ -3064,7 +3064,7 @@ void handle_ticks(void)
 //		status.maxopen_RED = FALSE;
 	}
 
-	if (BUFVALVEOPEN && !BUFTHERMWARM) {	// Valve open, therm cold
+	if (BUFVALVEOPEN && !BUFTHERMWARM) {			// Valve open, therm cold
     12fe:	80 91 48 04 	lds	r24, 0x0448	; 0x800448 <__TEXT_REGION_LENGTH__+0x7f4448>
     1302:	85 ff       	sbrs	r24, 5
     1304:	ee cf       	rjmp	.-36     	; 0x12e2 <handle_ticks+0x124>
