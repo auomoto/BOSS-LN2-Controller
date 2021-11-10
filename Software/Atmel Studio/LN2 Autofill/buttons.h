@@ -8,6 +8,7 @@
 
 void disp_coldtherm(void);
 void handle_button(void);
+void clear_BUTTONS(void);
 void init_BUTTONS(void);
 
 extern volatile uint8_t button_pushed;

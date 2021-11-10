@@ -97,6 +97,13 @@ void handle_button(void)
 	}
 }
 
+void clear_BUTTONS(void)
+{
+
+	PORTB.INTFLAGS = 0x0F;	// Clear spurious interrupts from debouncer?
+
+}
+
 /*----------------------------------------------------------------------
 INITIALIZE BUTTON PINS
 	Set up the pins for interrupts.

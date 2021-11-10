@@ -1,5 +1,4 @@
 #include "encoder.h"		// SCRPRESSURE, display()
-#include "oled.h"			// display_off
 #include "pressure.h"
 
 /*----------------------------------------------------------------------

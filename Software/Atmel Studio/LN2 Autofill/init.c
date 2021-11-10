@@ -30,6 +30,7 @@ void init(void)
 	init_OLED(0);
 	update_VERSION();
 	display(SCRVERSION);
+	clear_BUTTONS();
 
 }
 
