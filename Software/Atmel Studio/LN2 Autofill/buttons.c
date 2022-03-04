@@ -81,8 +81,13 @@ void handle_button(void)
 			if (SUPVALVEOPEN) {				// See valves.h
 				CLOSEVALVE(SUPVALVE);
 			} else {
-				OPENVALVE(SUPVALVE);
-				status.opentime_SUP = 0;
+// NEW
+				status.supply_button_pushed = TRUE;	// Button was pushed; cleared in handle_ticks()
+				status.supply_button_time = 0;		// # secs button has been held down
+// NEW
+//OLD:
+//				OPENVALVE(SUPVALVE);
+//				status.opentime_SUP = 0;
 			}
 			break;
 

@@ -16,7 +16,8 @@ void init_STATUS(void);
 void init(void)
 {
 
-	minute = FALSE;
+	hour_flag = FALSE;
+	minute_flag = FALSE;
 	seconds = 0;
 	init_PORTS();
 	init_VALVES();
@@ -37,6 +38,7 @@ void init(void)
 void init_STATUS()
 {
 
+	status.next_buftank_fill = BIGFILLINTERVAL;
 	status.next_fill = FILLINTERVAL;
 	status.opentime_BLU = 0;
 	status.opentime_RED = 0;

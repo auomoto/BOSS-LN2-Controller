@@ -16,7 +16,10 @@ int main(void)
 		if (encoder_sensed) {	// Front panel encoder changed
 			handle_encoder();	// See encoder.c
 		}
-		if (minute) {			// Things to do once a minute
+		if (hour_flag) {		// Things to do once an hour
+			handle_hour();		// See rtc.c
+		}
+		if (minute_flag) {		// Things to do once a minute
 			handle_minute();	// See rtc.c
 		}
 		if (tick) {				// Things to do once a second

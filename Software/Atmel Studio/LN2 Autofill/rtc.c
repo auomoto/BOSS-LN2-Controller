@@ -7,12 +7,40 @@
 #include "rtc.h"
 
 /*----------------------------------------------------------------------
+THINGS TO DO EVERY HOUR
+----------------------------------------------------------------------*/
+void handle_hour(void)
+{
+
+	hour_flag = FALSE;
+
+	if (BIGTANK) {
+		status.next_buftank_fill--;
+		if (status.next_buftank_fill == 0) {
+			if (BUFTHERMWARM) {
+				OPENVALVE(BUFVALVE);
+				status.opentime_BUF = 0;
+				OPENVALVE(SUPVALVE);
+				status.opentime_SUP = 0;
+				status.next_buftank_fill = BIGFILLINTERVAL;
+			}
+		}
+	}
+}
+
+
+/*----------------------------------------------------------------------
 THINGS TO DO EVERY MINUTE
 ----------------------------------------------------------------------*/
 void handle_minute(void)
 {
 
-	minute = FALSE;
+	if (++minutes >= 60) {
+		hour_flag = TRUE;
+		minutes = 0;
+	}
+
+	minute_flag = FALSE;
 
 	if (BLUVALVEOPEN) {
 		status.opentime_BLU++;
@@ -34,7 +62,9 @@ void handle_minute(void)
 		status.opentime_BUF++;
 		if (status.opentime_BUF >= BUFMAXOPEN) {	// valves.h MAX OPEN ERROR
 			CLOSEVALVE(BUFVALVE);
+			CLOSEVALVE(SUPVALVE);
 			status.maxopen_BUF = TRUE;
+			status.next_buftank_fill = BIGFILLINTERVAL;
 		}
 	}
 
@@ -58,8 +88,8 @@ void handle_ticks(void)
 
 	tick = FALSE;
 
-	if (seconds >= 60) {
-		minute = TRUE;
+	if (seconds >= 60) {		// seconds incremented in ISR
+		minute_flag = TRUE;
 		seconds = 0;
 	}
 
@@ -98,6 +128,8 @@ void handle_ticks(void)
 		if (status.overfill_BUF >= OVERFILLBUF) {	// valves.h
 			CLOSEVALVE(BUFVALVE);
 			status.overfill_BUF = 0;
+			_delay_ms(2000);
+			CLOSEVALVE(SUPVALVE);
 		} else {
 			status.overfill_BUF++;
 		}
@@ -108,6 +140,22 @@ void handle_ticks(void)
 //		status.opentime_BUF = 0;
 //		status.maxopen_BUF = FALSE;
 	}
+
+// NEW
+	if (status.supply_button_pushed) {
+		if (~PORTB.IN & PIN1_bm) {			// Button still pushed
+			if (status.supply_button_time++ >= 2) {
+				OPENVALVE(SUPVALVE);
+				status.opentime_SUP = 0;
+				status.supply_button_pushed = FALSE;
+				status.supply_button_time = 0;
+			}
+		} else {								// Button was released
+			status.supply_button_pushed = FALSE;
+			status.supply_button_time = 0;
+		}
+	}
+// NEW
 
 	if (timerOLED) {
 //		if (timerOLED > timeoutOLED) {	// Display timeout
