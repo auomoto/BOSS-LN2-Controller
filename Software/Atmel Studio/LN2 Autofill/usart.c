@@ -13,9 +13,108 @@ STATUS REPORT OVER SERIAL LINE
 	[2] - Red dewar valve status <O|C|T|X>
 	[3] - Blue dewar valve status <O|C|T|X>
 	[4-6] - Fill interval in minutes
+
+LN2,C,SUP,T,BUF,X,RED,C,BLU,111,NXT,222,MAX,333,INT,100,PRES,H,TBUF,H,TRED,H,TBLU
+
 ------------------------------------------------------------------------------*/
 void handle_serial(void)
 {
+
+	const char fmt0[] = "LN2,%c,SUP,%c,BUF,%c,RED,%c,BLU,%d,NXT,%d,MAX,%d,INT,%d,PRES,%c,TBUF,%c,TRED,%c,TBLU\r";
+	char strbuf[100], supvalve, bufvalve, redvalve, bluvalve, bufther, redther, bluther;
+	uint8_t nextfill, maxopen, fillint, pressure;
+
+	// Buffer dewar supply valve state
+	if (SUPVALVEOPEN) {
+		supvalve = 'O';
+	} else {
+		supvalve = 'C';
+	}
+
+	// Buffer dewar vent valve
+	if (status.maxopen_BUF) {
+		bufvalve = 'T';
+	} else if (BUFVALVEOPEN) {
+		bufvalve = 'O';
+	} else {
+		bufvalve = 'C';
+	}
+
+	// Red CCD vent valve
+	if (!REDENABLED) {
+		redvalve = 'X';
+	} else if (status.maxopen_RED) {
+		redvalve = 'T';
+	} else if (REDVALVEOPEN) {
+		redvalve = 'O';
+	} else {
+		redvalve = 'C';
+	}
+
+	// Blue CCD vent valve
+	if (!BLUENABLED) {
+		bluvalve = 'X';
+	} else if (status.maxopen_BLU) {
+		bluvalve = 'T';
+	} else if (BLUVALVEOPEN) {
+		bluvalve = 'O';
+	} else {
+		bluvalve = 'C';
+	}
+
+	// Fill interval
+	fillint = FILLINTERVAL;
+
+	// Next fill in
+	nextfill = status.next_fill;
+
+	// Max open time
+	maxopen = MAXOPENTIME;
+
+	// Pressure
+	pressure = status.pressure;
+
+	// BUF thermistor
+	if (BUFTHERMWARM) {
+		bufther = 'H';
+	} else {
+		bufther = 'C';
+	}
+
+	// Red thermistor
+	if (REDTHERMWARM) {
+		redther = 'H';
+	} else {
+		redther = 'C';
+	}
+
+	// Blue thermistor
+	if (BLUTHERMWARM) {
+		bluther = 'H';
+	} else {
+		bluther = 'C';
+	}
+
+	sprintf(strbuf, fmt0, supvalve, bufvalve, redvalve, bluvalve, nextfill, maxopen,
+		fillint, pressure, bufther, redther, bluther);
+
+	start_TCB0(100);			// 100 ms ticks
+	while (!send0_buf.done) {
+		if (ticks_TCB0 > 10) {	// See timers.h
+			return;
+		}
+		asm("nop");
+	}
+
+	send_USART((uint8_t*) strbuf, strlen(strbuf));
+
+}
+
+/*
+void handle_serialX(void)
+{
+
+	
 	char strbuf[81], tempstr[81];
 
 	recv0_buf.done = FALSE;
@@ -112,6 +211,7 @@ void handle_serial(void)
 	}
 	send_USART((uint8_t*) strbuf, strlen(strbuf));
 }
+*/
 
 /*------------------------------------------------------------------------------
 void init_USART(void)
