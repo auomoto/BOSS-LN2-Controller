@@ -20,7 +20,7 @@ usart.d usart.o: .././usart.c .././globals.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h \
- .././valves.h .././timers.h .././eeprom.h .././usart.h
+ .././usart.h .././valves.h .././timers.h .././eeprom.h
 
 .././globals.h:
 
@@ -66,10 +66,10 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h:
 
+.././usart.h:
+
 .././valves.h:
 
 .././timers.h:
 
 .././eeprom.h:
-
-.././usart.h:

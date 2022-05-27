@@ -1,6 +1,11 @@
 #ifndef BUTTONS_H
 #define BUTTONS_H
 
+#include "valves.h"
+#include "oled.h"
+#include "encoder.h"	// For SCRVALVES
+#include "eeprom.h"		// RED/BLUENABLE, FILLINTERVAL, MAXOPENTIME
+
 #define BLUEBUTTON		1	// None of these should be 0
 #define REDBUTTON		2
 #define BUFFERBUTTON	3

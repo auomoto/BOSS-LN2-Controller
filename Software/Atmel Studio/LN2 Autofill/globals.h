@@ -2,7 +2,7 @@
 #define GLOBALS_H
 
 #define F_CPU		3333333UL
-#define VERSION		"2022-02-01"		// Must be exactly 10 characters
+#define VERSION		"2022-05-27"		// Must be exactly 10 characters
 #define FALSE		0
 #define TRUE		1
 #define BIGTANK		TRUE				// If large supply dewar is attached

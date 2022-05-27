@@ -20,7 +20,9 @@ main.d main.o: .././main.c .././globals.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h \
- .././init.h .././buttons.h .././encoder.h .././rtc.h .././usart.h
+ .././init.h .././buttons.h .././valves.h .././oled.h .././twi.h \
+ .././timers.h .././encoder.h .././eeprom.h .././rtc.h .././pressure.h \
+ .././usart.h
 
 .././globals.h:
 
@@ -70,8 +72,20 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\
 
 .././buttons.h:
 
+.././valves.h:
+
+.././oled.h:
+
+.././twi.h:
+
+.././timers.h:
+
 .././encoder.h:
 
+.././eeprom.h:
+
 .././rtc.h:
+
+.././pressure.h:
 
 .././usart.h:

@@ -1,6 +1,8 @@
 #ifndef TWI_H
 #define TWI_H
 
+#include "timers.h"
+
 #define TWIFREQ		100000UL		// Fastest allowed for F_CPU = 3.33 MHz
 #define TWIBAUD		((uint8_t) (F_CPU/(2*TWIFREQ)) - 5)	// Ignore rise time
 #define TWIWRITE	0

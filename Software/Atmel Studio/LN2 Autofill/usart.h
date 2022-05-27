@@ -1,7 +1,11 @@
 #ifndef USART_H
 #define USART_H
 
-#define BUFSIZE 81
+#include "valves.h"
+#include "timers.h"
+#include "eeprom.h"
+
+#define BUFSIZE 255
 #define	USART_BAUD_RATE(BAUD_RATE)	((float)(F_CPU * 64 / (16 * (float)BAUD_RATE)) + 0.5)
 
 typedef struct {

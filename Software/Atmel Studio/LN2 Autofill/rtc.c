@@ -1,9 +1,4 @@
 #include "globals.h"
-#include "oled.h"
-#include "valves.h"
-#include "eeprom.h"
-#include "encoder.h"
-#include "pressure.h"
 #include "rtc.h"
 
 /*----------------------------------------------------------------------

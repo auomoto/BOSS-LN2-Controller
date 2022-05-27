@@ -20,7 +20,8 @@ encoder.d encoder.o: .././encoder.c .././globals.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h \
- .././eeprom.h .././encoder.h .././oled.h .././valves.h
+ .././encoder.h .././eeprom.h .././oled.h .././twi.h .././timers.h \
+ .././valves.h
 
 .././globals.h:
 
@@ -66,10 +67,14 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h:
 
-.././eeprom.h:
-
 .././encoder.h:
 
+.././eeprom.h:
+
 .././oled.h:
+
+.././twi.h:
+
+.././timers.h:
 
 .././valves.h:

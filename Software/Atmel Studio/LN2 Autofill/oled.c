@@ -11,7 +11,6 @@ oled.c
 ------------------------------------------------------------------------------*/
 
 #include "globals.h"
-#include "twi.h"
 #include "oled.h"
 
 uint16_t timerOLED;	//, timeoutOLED;	// Used to turn off the display

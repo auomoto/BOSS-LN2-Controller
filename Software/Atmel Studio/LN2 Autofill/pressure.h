@@ -1,7 +1,7 @@
 #ifndef PRESSURE_H
 #define PRESSURE_H
 
-#include "globals.h"
+#include "encoder.h"		// SCRPRESSURE, display()
 
 // Pressure sensor defines (Panasonic ADP5151)
 #define PSSLOPE			(0.8505)

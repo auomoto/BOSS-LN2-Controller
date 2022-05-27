@@ -12,10 +12,6 @@ PUSHBUTTONS ON THE FRONT PANEL
 
 #include "globals.h"
 #include "buttons.h"
-#include "valves.h"
-#include "oled.h"
-#include "encoder.h"	// For SCRVALVES
-#include "eeprom.h"		// RED/BLUENABLE, FILLINTERVAL, MAXOPENTIME
 
 volatile uint8_t button_pushed;
 
@@ -44,8 +40,8 @@ void handle_button(void)
 				status.maxopen_BLU = FALSE;
 			} else if (BLUENABLED && !BLUTHERMWARM) {
 				disp_coldtherm();
-				_delay_ms(2000);
-				display(screen_value);
+//				_delay_ms(2000);
+//				display(screen_value);
 			}
 			break;
 
@@ -58,8 +54,8 @@ void handle_button(void)
 				status.maxopen_RED = FALSE;
 			} else if (REDENABLED && !REDTHERMWARM) {
 				disp_coldtherm();
-				_delay_ms(2000);
-				display(screen_value);
+//				_delay_ms(2000);
+//				display(screen_value);
 			}
 			break;
 
@@ -72,8 +68,8 @@ void handle_button(void)
 				status.maxopen_BUF = FALSE;
 			} else if (!BUFTHERMWARM) {
 				disp_coldtherm();
-				_delay_ms(2000);
-				display(screen_value);
+//				_delay_ms(2000);
+//				display(screen_value);
 			}
 			break;
 

@@ -1,7 +1,4 @@
 #include "globals.h"
-#include "valves.h"
-#include "timers.h"
-#include "eeprom.h"
 #include "usart.h"
 
 USARTBuf send0_buf, recv0_buf;
@@ -23,6 +20,8 @@ void handle_serial(void)
 	const char fmt0[] = "LN2,%c,SUP,%c,BUF,%c,RED,%c,BLU,%d,NXT,%d,MAX,%d,INT,%d,PRES,%c,TBUF,%c,TRED,%c,TBLU\r";
 	char strbuf[100], supvalve, bufvalve, redvalve, bluvalve, bufther, redther, bluther;
 	uint8_t nextfill, maxopen, fillint, pressure;
+
+	recv0_buf.done = FALSE;
 
 	// Buffer dewar supply valve state
 	if (SUPVALVEOPEN) {
@@ -110,7 +109,7 @@ void handle_serial(void)
 
 }
 
-/*
+
 void handle_serialX(void)
 {
 
@@ -211,7 +210,7 @@ void handle_serialX(void)
 	}
 	send_USART((uint8_t*) strbuf, strlen(strbuf));
 }
-*/
+
 
 /*------------------------------------------------------------------------------
 void init_USART(void)

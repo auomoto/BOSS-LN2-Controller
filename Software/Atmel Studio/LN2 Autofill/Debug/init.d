@@ -20,8 +20,9 @@ init.d init.o: .././init.c .././globals.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h \
- .././buttons.h .././eeprom.h .././oled.h .././rtc.h .././twi.h \
- .././valves.h .././encoder.h .././pressure.h .././usart.h .././init.h
+ .././init.h .././buttons.h .././valves.h .././oled.h .././twi.h \
+ .././timers.h .././encoder.h .././eeprom.h .././rtc.h .././pressure.h \
+ .././usart.h
 
 .././globals.h:
 
@@ -67,22 +68,24 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h:
 
+.././init.h:
+
 .././buttons.h:
-
-.././eeprom.h:
-
-.././oled.h:
-
-.././rtc.h:
-
-.././twi.h:
 
 .././valves.h:
 
+.././oled.h:
+
+.././twi.h:
+
+.././timers.h:
+
 .././encoder.h:
+
+.././eeprom.h:
+
+.././rtc.h:
 
 .././pressure.h:
 
 .././usart.h:
-
-.././init.h:

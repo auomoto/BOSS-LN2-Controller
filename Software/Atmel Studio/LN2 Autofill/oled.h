@@ -1,6 +1,8 @@
 #ifndef OLED_H
 #define OLED_H
 
+#include "twi.h"
+
 #define OLEDADDR0		(0x3C)		// TWI bus address
 #define OLEDADDR1		(0x3D)		// TWI bus address
 #define OLEDCMD			0x00		// Newhaven command was 1

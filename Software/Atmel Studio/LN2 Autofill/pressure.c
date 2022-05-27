@@ -1,4 +1,4 @@
-#include "encoder.h"		// SCRPRESSURE, display()
+#include "globals.h"
 #include "pressure.h"
 
 /*----------------------------------------------------------------------

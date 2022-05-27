@@ -1,7 +1,9 @@
 #ifndef ENCODER_H
 #define ENCODER_H
 
-#include "globals.h"
+#include "eeprom.h"
+#include "oled.h"
+#include "valves.h"
 
 #define ENCODERBUTTON	5
 #define ENCODERA		7

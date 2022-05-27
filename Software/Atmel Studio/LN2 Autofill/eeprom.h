@@ -1,5 +1,5 @@
-#ifndef EEPROMH
-#define EEPROMH
+#ifndef EEPROM_H
+#define EEPROM_H
 
 #define VERSIONADDR		(0)		// Version string must have exactly 11 bytes
 #define VERSIONSIZE		(10)	// Version is the date, as YYYY-DD-MM

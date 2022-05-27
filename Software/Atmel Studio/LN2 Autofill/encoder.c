@@ -1,9 +1,5 @@
 #include "globals.h"
-#include "eeprom.h"
 #include "encoder.h"
-#include "oled.h"
-#include "valves.h"
-
 
 volatile uint8_t encoder_sensed, encoder_value, screen_value;
 volatile int8_t encoder_change;
