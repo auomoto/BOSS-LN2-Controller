@@ -26,6 +26,7 @@ int main(void)
 			handle_ticks();		// See rtc.c
 		}
 		if (recv0_buf.done) {	// Serial communication received
+writestr_OLED(0, "got a CR", 1);
 			handle_serial();	// See usart.c
 		}
 	}

@@ -79,8 +79,6 @@ THINGS TO DO EVERY SECOND
 void handle_ticks(void)
 {
 
-//	static uint8_t oldpressure;
-
 	tick = FALSE;
 
 	if (seconds >= 60) {		// seconds incremented in ISR
@@ -88,7 +86,6 @@ void handle_ticks(void)
 		seconds = 0;
 	}
 
-//	oldpressure = status.pressure;
 	status.pressure = read_PRESSURE();				// LN2 pressure
 
 	if (BLUVALVEOPEN && !BLUTHERMWARM) {			// Valve open, therm cold
@@ -101,8 +98,6 @@ void handle_ticks(void)
 		if ((screen_value == SCRVALVES) && timerOLED) {
 			display(SCRVALVES);
 		}
-//		status.opentime_BLU = 0;
-//		status.maxopen_BLU = FALSE;
 	}
 
 	if (REDVALVEOPEN && !REDTHERMWARM) {			// Valve open, therm cold
@@ -115,8 +110,6 @@ void handle_ticks(void)
 		if ((screen_value == SCRVALVES) && timerOLED) {
 			display(SCRVALVES);
 		}
-//		status.opentime_RED = 0;
-//		status.maxopen_RED = FALSE;
 	}
 
 	if (BUFVALVEOPEN && !BUFTHERMWARM) {			// Valve open, therm cold
@@ -131,12 +124,8 @@ void handle_ticks(void)
 		if ((screen_value == SCRVALVES) && timerOLED) {
 			display(SCRVALVES);
 		}
-//		status.buildpressure_time = 0;
-//		status.opentime_BUF = 0;
-//		status.maxopen_BUF = FALSE;
 	}
 
-// NEW
 	if (status.supply_button_pushed) {
 		if (~PORTB.IN & PIN1_bm) {			// Button still pushed
 			if (status.supply_button_time++ >= 2) {
@@ -150,10 +139,8 @@ void handle_ticks(void)
 			status.supply_button_time = 0;
 		}
 	}
-// NEW
 
 	if (timerOLED) {
-//		if (timerOLED > timeoutOLED) {	// Display timeout
 		if (timerOLED > OLEDTIMEOUT) {	// Display timeout
 			clear_OLED(0);
 			timerOLED = 0;
@@ -162,12 +149,6 @@ void handle_ticks(void)
 		}
 	}
 
-	// Update display if the pressure changed
-/*
-	if ((status.pressure != oldpressure) && !display_off) {
-		display(SCRPRESSURE);
-	}
-*/
 }
 
 /*----------------------------------------------------------------------

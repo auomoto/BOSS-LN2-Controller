@@ -40,8 +40,6 @@ void handle_button(void)
 				status.maxopen_BLU = FALSE;
 			} else if (BLUENABLED && !BLUTHERMWARM) {
 				disp_coldtherm();
-//				_delay_ms(2000);
-//				display(screen_value);
 			}
 			break;
 
@@ -54,8 +52,6 @@ void handle_button(void)
 				status.maxopen_RED = FALSE;
 			} else if (REDENABLED && !REDTHERMWARM) {
 				disp_coldtherm();
-//				_delay_ms(2000);
-//				display(screen_value);
 			}
 			break;
 
@@ -68,8 +64,6 @@ void handle_button(void)
 				status.maxopen_BUF = FALSE;
 			} else if (!BUFTHERMWARM) {
 				disp_coldtherm();
-//				_delay_ms(2000);
-//				display(screen_value);
 			}
 			break;
 
@@ -77,13 +71,8 @@ void handle_button(void)
 			if (SUPVALVEOPEN) {				// See valves.h
 				CLOSEVALVE(SUPVALVE);
 			} else {
-// NEW
 				status.supply_button_pushed = TRUE;	// Button was pushed; cleared in handle_ticks()
 				status.supply_button_time = 0;		// # secs button has been held down
-// NEW
-//OLD:
-//				OPENVALVE(SUPVALVE);
-//				status.opentime_SUP = 0;
 			}
 			break;
 
@@ -93,9 +82,9 @@ void handle_button(void)
 
 	button_pushed = FALSE;
 
-	if (screen_value == SCRVALVES) {
-		display(SCRVALVES);
-	}
+//	if (screen_value == SCRVALVES) {
+//		display(SCRVALVES);
+//	}
 }
 
 void clear_BUTTONS(void)
