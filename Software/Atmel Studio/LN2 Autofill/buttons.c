@@ -82,15 +82,12 @@ void handle_button(void)
 
 	button_pushed = FALSE;
 
-//	if (screen_value == SCRVALVES) {
-//		display(SCRVALVES);
-//	}
 }
 
 void clear_BUTTONS(void)
 {
 
-	PORTB.INTFLAGS = 0x0F;	// Clear spurious interrupts from debouncer?
+	PORTB.INTFLAGS = 0x0F;	// Clear spurious interrupts at init
 
 }
 

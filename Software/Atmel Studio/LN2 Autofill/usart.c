@@ -17,7 +17,7 @@ LN2,C,SUP,T,BUF,X,RED,C,BLU,111,NXT,222,MAX,333,INT,100,PRES,H,TBUF,H,TRED,H,TBL
 void handle_serial(void)
 {
 
-	const char fmt0[] = "LN2,%c,SUP,%c,BUF,%c,RED,%c,BLU,%d,NXT,%d,MAX,%d,INT,%d,PRES,%c,TBUF,%c,TRED,%c,TBLU\r";
+	const char fmt0[] = "%c%c%c%c,%d,NXT,%d,MAX,%d,INT,%d,PRES,%c,TBUF,%c,TRED,%c,TBLU\r";
 	char strbuf[100], supvalve, bufvalve, redvalve, bluvalve, bufther, redther, bluther;
 	uint8_t nextfill, maxopen, fillint, pressure;
 
@@ -109,7 +109,7 @@ void handle_serial(void)
 
 }
 
-
+/*
 void handle_serialX(void)
 {
 
@@ -210,7 +210,7 @@ void handle_serialX(void)
 	}
 	send_USART((uint8_t*) strbuf, strlen(strbuf));
 }
-
+*/
 
 /*------------------------------------------------------------------------------
 void init_USART(void)

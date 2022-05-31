@@ -94,7 +94,6 @@ void init_OLED(uint8_t displaynumber)
 	_delay_ms(100);				// Wait after display-on command
 
 	timerOLED = 0;
-//	timeoutOLED = 5;
 
 }
 

@@ -114,15 +114,10 @@ uint8_t start_TWI(uint8_t addr, uint8_t rw)
 {
 
 	if (rw == TWIREAD) {
-//		addr = ((addr << 1) | 0x01);
 		TWI0.MADDR = ((addr << 1) | 0x01);
 	} else {
-//		addr = ((addr << 1) & ~0x01);
-//		addr = (addr << 1);
 		TWI0.MADDR = (addr << 1);
 	}
-
-//	TWI0.MADDR = addr;							// Start condition
 
 	start_TCB0(1);
 	while (!(TWI0.MSTATUS & (TWI_WIF_bm | TWI_RIF_bm))) {

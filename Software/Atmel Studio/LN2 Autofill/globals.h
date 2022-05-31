@@ -2,10 +2,10 @@
 #define GLOBALS_H
 
 #define F_CPU		3333333UL
-#define VERSION		"2022-05-27"		// Must be exactly 10 characters
+#define VERSION		"2022-05-31"		// Must be exactly 10 characters
 #define FALSE		0
 #define TRUE		1
-#define BIGTANK		TRUE				// If large supply dewar is attached
+#define BIGTANK		FALSE				// Autofill from large supply dewar
 #define BIGFILLINTERVAL		12			// Big tank fill interval in hours
 
 #include <avr/io.h>			// AVR macros
