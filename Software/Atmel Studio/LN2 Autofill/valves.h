@@ -13,8 +13,8 @@
 #define SUPVALVEOPEN	(PORTC.IN & PIN4_bm)
 #define BUFMAXOPEN		20						// In minutes
 #define OVERFILLBUF		5						// In seconds
-#define OVERFILLBLU		5						// In seconds
-#define OVERFILLRED		5						// In seconds
+#define OVERFILLBLU		3						// In seconds
+#define OVERFILLRED		3						// In seconds
 
 // Thermistor pins
 #define BLUTHERMWARM	(PORTE.IN & PIN0_bm)	// TRUE if the thermistor is warm

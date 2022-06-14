@@ -133,6 +133,9 @@ void handle_ticks(void)
 				status.opentime_SUP = 0;
 				status.supply_button_pushed = FALSE;
 				status.supply_button_time = 0;
+				if ((screen_value == SCRVALVES)) {
+					display(SCRVALVES);
+				}
 			}
 		} else {								// Button was released
 			status.supply_button_pushed = FALSE;
