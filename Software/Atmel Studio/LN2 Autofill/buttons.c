@@ -30,6 +30,7 @@ BUTTONS
 ----------------------------------------------------------------------*/
 void handle_button(void)
 {
+
 	switch (button_pushed) {
 		case BLUEBUTTON:
 			if (BLUVALVEOPEN) {				// See valves.h
@@ -79,9 +80,14 @@ void handle_button(void)
 		case SUPPLYBUTTON:
 			if (SUPVALVEOPEN) {				// See valves.h
 				CLOSEVALVE(SUPVALVE);
-			} else {
-				status.supply_button_pushed = TRUE;	// Button was pushed; cleared in handle_ticks()
+			} else if (status.supply_button_time > 2) {
+				OPENVALVE(SUPVALVE);
 				status.supply_button_time = 0;		// # secs button has been held down
+				status.opentime_SUP = 0;
+				status.supply_button_pushed = FALSE;
+				if ((screen_value == SCRVALVES)) {
+					display(SCRVALVES);
+				}
 			}
 			if ((screen_value == SCRVALVES)) {
 				display(SCRVALVES);
@@ -95,18 +101,23 @@ void handle_button(void)
 	button_pushed = FALSE;
 
 }
-
+/*
 void clear_BUTTONS(void)
 {
 
 	PORTB.INTFLAGS = 0x0F;	// Clear spurious interrupts at init
 
 }
-
+*/
 /*----------------------------------------------------------------------
 INITIALIZE BUTTON PINS
 	Set up the pins for interrupts.
 ----------------------------------------------------------------------*/
+void init_BUTTONS(void)
+{
+
+}
+/*
 void init_BUTTONS(void)
 {
 	// Four solenoid valve control buttons
@@ -115,11 +126,12 @@ void init_BUTTONS(void)
 	PORTB.PIN0CTRL = PORT_PULLUPEN_bm | PORT_ISC_FALLING_gc;	// SW3
 	PORTB.PIN1CTRL = PORT_PULLUPEN_bm | PORT_ISC_FALLING_gc;	// SW4
 }
-
+*/
 /*----------------------------------------------------------------------
 Interrupt routine for the four pushbuttons. The interrupt flag is
 cleared and the button_pushed value is set.
 ----------------------------------------------------------------------*/
+/*
 ISR(PORTB_PORT_vect)
 {
 	if (PORTB.INTFLAGS & PIN2_bm) {			// Blue pushbutton
@@ -138,4 +150,32 @@ ISR(PORTB_PORT_vect)
 		PORTB.INTFLAGS = PIN1_bm;			// Clear the interrupt flag
 		button_pushed = SUPPLYBUTTON;
 	}
+}
+*/
+
+uint8_t scan_buttons(void)
+{
+
+	uint8_t value;
+
+	if (~PORTB.IN & PIN2_bm) {
+		value = BLUEBUTTON;
+	} else if (~PORTB.IN & PIN3_bm) {
+		value = REDBUTTON;
+	} else if (~PORTB.IN & PIN0_bm) {
+		value = BUFFERBUTTON;
+	} else if (~PORTB.IN & PIN1_bm) {
+		value = SUPPLYBUTTON;
+		if (status.supply_button_pushed) {		// Button was already pushed
+			status.supply_button_time++;		// # secs button has been held down
+		} else {
+			status.supply_button_pushed = TRUE;
+			status.supply_button_time = 0;
+		}
+	} else {
+		value = FALSE;
+	}
+
+	return(value);
+
 }

@@ -6,6 +6,7 @@
 #include "eeprom.h"
 #include "encoder.h"
 #include "pressure.h"
+#include "buttons.h"
 
 void handle_ticks(void);
 void handle_minute(void);

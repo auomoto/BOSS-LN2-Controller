@@ -12,7 +12,7 @@ void init(void)
 	seconds = 0;
 	init_PORTS();
 	init_VALVES();
-	init_TCB2();
+//	init_TCB2();
 	init_USART();
 	init_BUTTONS();
 	init_ENCODER();
@@ -23,7 +23,7 @@ void init(void)
 	init_OLED(0);
 	update_VERSION();
 	display(SCRVERSION);
-	clear_BUTTONS();
+//	clear_BUTTONS();
 
 }
 

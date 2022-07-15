@@ -88,6 +88,8 @@ void handle_ticks(void)
 
 	status.pressure = read_PRESSURE();				// LN2 pressure
 
+//	handle_button();
+
 	if (BLUVALVEOPEN && !BLUTHERMWARM) {			// Valve open, therm cold
 		if (status.overfill_BLU >= OVERFILLBLU) {	// valves.h
 			CLOSEVALVE(BLUVALVE);
@@ -125,7 +127,7 @@ void handle_ticks(void)
 			display(SCRVALVES);
 		}
 	}
-
+/*
 	if (status.supply_button_pushed) {
 		if (~PORTB.IN & PIN1_bm) {			// Button still pushed
 			if (status.supply_button_time++ >= 2) {
@@ -142,6 +144,7 @@ void handle_ticks(void)
 			status.supply_button_time = 0;
 		}
 	}
+*/
 
 	if (timerOLED) {
 		if (timerOLED > OLEDTIMEOUT) {	// Display timeout

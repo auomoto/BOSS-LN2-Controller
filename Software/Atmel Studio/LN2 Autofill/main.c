@@ -24,6 +24,7 @@ int main(void)
 		}
 		if (tick) {				// Things to do once a second
 			handle_ticks();		// See rtc.c
+			button_pushed = scan_buttons();
 		}
 		if (recv0_buf.done) {	// Serial communication received
 			handle_serial();	// See usart.c
