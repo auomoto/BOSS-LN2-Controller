@@ -36,7 +36,7 @@ BUTTONS
 void handle_button(void)
 {
 
-	_delay_ms(25);
+	_delay_ms(10);
 	switch (button_pushed) {
 		case BLUEBUTTON:
 			if (!BLUEBUTTONCLOSED) {

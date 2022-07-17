@@ -7,7 +7,6 @@
 
 #include "globals.h"
 #include "init.h"
-#include <avr/io.h>
 
 int main(void)
 {

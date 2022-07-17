@@ -3,6 +3,12 @@
 
 /*----------------------------------------------------------------------
 THINGS TO DO EVERY HOUR
+	This routine checks to see if the automatic buffer dewar fill
+	routine should be done. BIGTANK (in globals.h) must be TRUE for
+	this to happen.
+
+	The buffer dewar must constantly be connected to a large supply
+	dewar. Normally, this isn't the case at LCO.
 ----------------------------------------------------------------------*/
 void handle_hour(void)
 {
@@ -23,9 +29,9 @@ void handle_hour(void)
 	}
 }
 
-
 /*----------------------------------------------------------------------
 THINGS TO DO EVERY MINUTE
+	Checks if a buffer dewar timeout has occurred.
 ----------------------------------------------------------------------*/
 void handle_minute(void)
 {
@@ -75,6 +81,9 @@ void handle_minute(void)
 
 /*----------------------------------------------------------------------
 THINGS TO DO EVERY SECOND
+	Check to see if a valve needs to be closed because liquid nitrogen
+	has been detected at a thermistor. Turn off the OLED display if
+	it has timed out. Get a new LN2 gas pressure reading.
 ----------------------------------------------------------------------*/
 void handle_ticks(void)
 {

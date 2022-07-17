@@ -5,6 +5,10 @@
 #include "oled.h"
 #include "buttons.h"
 
+#define ENCODERBUTTONCLOSED (~PORTC.IN & PIN1_bm)
+#define ENCODERACLOSED		(~PORTC.IN & PIN2_bm)
+#define ENCODERBCLOSED		(~PORTC.IN & PIN3_bm)
+
 #define ENCODERBUTTON	5
 #define ENCODERA		7
 #define SCRVERSION		0
@@ -26,6 +30,7 @@ void handle_encoder(void);
 void init_ENCODER(void);
 void start_FILL(void);
 
-extern volatile uint8_t encoder_sensed, encoder_value, screen_value;
+extern volatile uint8_t encoder_sensed;
+extern uint8_t encoder_value, screen_value;
 
 #endif

@@ -1,8 +1,9 @@
 #include "globals.h"
 #include "encoder.h"
 
-volatile uint8_t encoder_sensed, encoder_value, screen_value;
+volatile uint8_t encoder_sensed;
 volatile int8_t encoder_change;
+uint8_t encoder_value, screen_value;
 
 /*----------------------------------------------------------------------
 DISPLAY
@@ -157,12 +158,15 @@ CHANGE FILL INTERVAL
 ----------------------------------------------------------------------*/
 void change_FILLINT(void)
 {
+
 	char strbuf[21];
 
+	PORTC.INTFLAGS = PIN1_bm;					// Clear interrupt flag
+	encoder_sensed = FALSE;
 	encoder_value = FILLINTERVAL;				// eeprom.h
 	if (encoder_value == 1) {
 		sprintf(strbuf, "%d minute", encoder_value);
-		} else {
+	} else {
 		sprintf(strbuf, "%d minutes", encoder_value);
 	}
 	writestr_OLED(0, "Push to set intv", 1);
@@ -170,22 +174,34 @@ void change_FILLINT(void)
 
 	while (encoder_sensed != ENCODERBUTTON) {	// encoder.h
 		if (encoder_sensed == ENCODERA) {
+			if ((ENCODERACLOSED && !ENCODERBCLOSED) || (!ENCODERACLOSED && ENCODERBCLOSED)) {
+				encoder_value++;
+				encoder_change = 1;
+			} else {
+				encoder_value--;
+				encoder_change = -1;
+			}
 			if (encoder_value <= 1) {
 				encoder_value = 2;
-				} else if (encoder_value == 255) {
+			} else if (encoder_value == 255) {
 				encoder_value = 254;
 			}
 			sprintf(strbuf, "%d minutes", encoder_value);
-			writestr_OLED(0, "Push to set int", 1);
+			writestr_OLED(0, "Push to set intv", 1);
 			writestr_OLED(0, strbuf, 2);
+			PORTC.INTFLAGS = PIN2_bm;			// Clear interrupt flag
+			encoder_sensed = FALSE;
 		}
 	}
+	PORTC.INTFLAGS = PIN1_bm;			// Clear interrupt flag
 	encoder_sensed = FALSE;
 	eeprom_update_byte((uint8_t *)FILLINTADDR, encoder_value);
 	if (MAXOPENTIME >= FILLINTERVAL) {
 		eeprom_update_byte((uint8_t *)MAXOPENADDR, (FILLINTERVAL - 1));
 	}
+
 	display(SCRFILLINT);
+
 }
 
 /*----------------------------------------------------------------------
@@ -197,10 +213,12 @@ void change_MAXOPENTIME(void)
 {
 	char strbuf[21];
 
+	PORTC.INTFLAGS = PIN1_bm;				// Clear interrupt flag
+	encoder_sensed = FALSE;
 	encoder_value = MAXOPENTIME;			// eeprom.h
 	if (encoder_value == 1) {
 		sprintf(strbuf, "%d minute", encoder_value);
-		} else {
+	} else {
 		sprintf(strbuf, "%d minutes", encoder_value);
 	}
 	writestr_OLED(0, "Push to set maxo", 1);
@@ -208,23 +226,34 @@ void change_MAXOPENTIME(void)
 
 	while (encoder_sensed != ENCODERBUTTON) {
 		if (encoder_sensed == ENCODERA) {
-			if (encoder_value == 0) {
+			if ((ENCODERACLOSED && !ENCODERBCLOSED) || (!ENCODERACLOSED && ENCODERBCLOSED)) {
+				encoder_value++;
+				encoder_change = 1;
+			} else {
+				encoder_value--;
+				encoder_change = -1;
+			}
+			if (encoder_value <= 0) {
 				encoder_value = 1;
 			} else if (encoder_value == 255) {
 				encoder_value = 254;
 			}
+
 			if (encoder_value >= FILLINTERVAL) {
 				encoder_value = FILLINTERVAL - 1;
 			}
 			if (encoder_value == 1) {
 				sprintf(strbuf, "%d minute", encoder_value);
-				} else {
+			} else {
 				sprintf(strbuf, "%d minutes", encoder_value);
 			}
 			writestr_OLED(0, "Push to set maxo", 1);
-			writestr_OLED(0, strbuf, 2);
+			writestr_OLED(0, strbuf, 2);			
+			PORTC.INTFLAGS = PIN2_bm;		// Clear interrupt flag
+			encoder_sensed = FALSE;
 		}
 	}
+	PORTC.INTFLAGS = PIN1_bm;				// Clear interrupt flag
 	encoder_sensed = FALSE;
 	eeprom_update_byte((uint8_t *)MAXOPENADDR, encoder_value);
 	display(SCRMAXOPENTIME);
@@ -243,19 +272,27 @@ HANDLE ENCODER INPUT
 ----------------------------------------------------------------------*/
 void handle_encoder(void)
 {
+
 	if (display_off) {
 		display(screen_value);
 	} else if (encoder_sensed == ENCODERA) {
-		encoder_sensed = FALSE;
+		if ((ENCODERACLOSED && !ENCODERBCLOSED) || (!ENCODERACLOSED && ENCODERBCLOSED)) {
+			encoder_value++;
+			encoder_change = 1;
+		} else {
+			encoder_value--;
+			encoder_change = -1;
+		}
 		screen_value = (screen_value + encoder_change);
 		if (screen_value < 0) {
 			screen_value = MAXSCREENS-1;
 		} else {
 			screen_value %= MAXSCREENS;
 		}
+		PORTC.INTFLAGS = PIN2_bm;			// Clear interrupt flag
+		encoder_sensed = FALSE;
 		display(screen_value);
-	} else if (encoder_sensed == ENCODERBUTTON) {	// Some screens allow
-		encoder_sensed = FALSE;						// parameter changes
+	} else if (encoder_sensed == ENCODERBUTTON) {
 		switch (screen_value) {
 			case SCRNEXTFILL:				// Immediate start fill
 				start_FILL();
@@ -275,23 +312,28 @@ void handle_encoder(void)
 			default:
 				break;
 		}
+		PORTC.INTFLAGS = PIN1_bm;			// Clear interrupt flag
+		encoder_sensed = FALSE;
 	}
 }
 
 /*----------------------------------------------------------------------
 INITIALIZE ENCODER
 
-	PC3 is ENCA encoder A signal
-	PC2 is ENCB encoder B signal (does not cause an interrupt)
+	PC2 is ENCA encoder A signal
+	PC3 is ENCB encoder B signal (does not cause an interrupt)
 	PC1 is PUSH encoder pushbutton
 ----------------------------------------------------------------------*/
 void init_ENCODER(void)
 {
 	
 	// Rotary Encoder
-	PORTC.PIN3CTRL = PORT_PULLUPEN_bm | PORT_ISC_FALLING_gc;	// ENCA
-	PORTC.PIN2CTRL = PORT_PULLUPEN_bm;							// ENCB
-	PORTC.PIN1CTRL = PORT_PULLUPEN_bm | PORT_ISC_FALLING_gc;	// PUSH
+//	PORTC.PIN2CTRL = PORT_PULLUPEN_bm | PORT_ISC_FALLING_gc;	// ENCA
+//	PORTC.PIN2CTRL = PORT_PULLUPEN_bm | PORT_ISC_BOTHEDGES_gc;	// ENCA
+	PORTC.PIN2CTRL = PORT_ISC_BOTHEDGES_gc;	// ENCA
+//	PORTC.PIN3CTRL = PORT_PULLUPEN_bm;							// ENCB
+//	PORTC.PIN1CTRL = PORT_PULLUPEN_bm | PORT_ISC_FALLING_gc;	// PUSH
+	PORTC.PIN1CTRL = PORT_ISC_FALLING_gc;	// PUSH
 }
 
 /*----------------------------------------------------------------------
@@ -323,22 +365,27 @@ void start_FILL(void)
 }
 
 /*----------------------------------------------------------------------
-Interrupt routine for encoder rotation or pushbutton
+Interrupt routine for encoder rotation or pushbutton.
+	PC1 is the encoder pushbutton
+	PC2 is ENCODER A signal
+	PC3 is ENCODER B signal
 ----------------------------------------------------------------------*/
 ISR(PORTC_PORT_vect)
 {
 	if (PORTC.INTFLAGS & PIN1_bm) {			// Encoder pushbutton
-		PORTC.INTFLAGS = PIN1_bm;			// Clear interrupt flag
+//		PORTC.INTFLAGS = PIN1_bm;			// Clear interrupt flag
 		encoder_sensed = ENCODERBUTTON;
-	} else if (PORTC.INTFLAGS & PIN3_bm) {	// Encoder rotary
-		PORTC.INTFLAGS = PIN3_bm;			// Clear interrupt flag
-		if (PORTC.IN & PIN2_bm) {
+	} else if (PORTC.INTFLAGS & PIN2_bm) {	// Encoder rotary
+//		PORTC.INTFLAGS = PIN2_bm;			// Clear interrupt flag
+/*
+		if (PORTC.IN & PIN3_bm) {			// Check ENCB state
 			encoder_value++;
 			encoder_change = 1;
 		} else {
 			encoder_value--;
 			encoder_change = -1;
 		}
+*/
 		encoder_sensed = ENCODERA;
 	}
 }
