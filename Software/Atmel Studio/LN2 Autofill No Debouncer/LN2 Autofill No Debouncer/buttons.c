@@ -36,7 +36,11 @@ BUTTONS
 void handle_button(void)
 {
 
-	_delay_ms(10);
+	uint8_t ten_ms_ticks;
+
+	_delay_ms(10);									// Delay for second read
+	screen_value = SCRVALVES;
+	display(screen_value);
 	switch (button_pushed) {
 		case BLUEBUTTON:
 			if (!BLUEBUTTONCLOSED) {
@@ -44,15 +48,16 @@ void handle_button(void)
 			}
 			if (BLUVALVEOPEN) {				// See valves.h
 				CLOSEVALVE(BLUVALVE);
+				screen_value = SCRVALVES;
+				display(SCRVALVES);
 			} else if (BLUENABLED && BLUTHERMWARM) {
 				OPENVALVE(BLUVALVE);
 				status.opentime_BLU = 0;
 				status.maxopen_BLU = FALSE;
-			}
-			if (BLUENABLED && !BLUTHERMWARM) {
-				disp_coldtherm();
-			} else if ((screen_value == SCRVALVES)) {
+				screen_value = SCRVALVES;
 				display(SCRVALVES);
+			} else if (BLUENABLED && !BLUTHERMWARM) {
+				disp_coldtherm();
 			}
 			break;
 
@@ -62,15 +67,16 @@ void handle_button(void)
 			}
 			if (REDVALVEOPEN) {				// See valves.h
 				CLOSEVALVE(REDVALVE);
+				screen_value = SCRVALVES;
+				display(SCRVALVES);
 			} else if (REDENABLED && REDTHERMWARM) {
 				OPENVALVE(REDVALVE);
 				status.opentime_RED = 0;
 				status.maxopen_RED = FALSE;
-			}
-			if (REDENABLED && !REDTHERMWARM) {
-				disp_coldtherm();
-			} else if ((screen_value == SCRVALVES)) {
+				screen_value = SCRVALVES;
 				display(SCRVALVES);
+			} else if (REDENABLED && !REDTHERMWARM) {
+				disp_coldtherm();
 			}
 			break;
 
@@ -80,15 +86,16 @@ void handle_button(void)
 			}
 			if (BUFVALVEOPEN) {				// See valves.h
 				CLOSEVALVE(BUFVALVE);
+				screen_value = SCRVALVES;
+				display(SCRVALVES);
 			} else if (BUFTHERMWARM) {
 				OPENVALVE(BUFVALVE);
 				status.opentime_BUF = 0;
 				status.maxopen_BUF = FALSE;
-			}
-			if (!BUFTHERMWARM) {
-				disp_coldtherm();
-			} else if ((screen_value == SCRVALVES)) {
+				screen_value = SCRVALVES;
 				display(SCRVALVES);
+			} else if (!BUFTHERMWARM) {
+				disp_coldtherm();
 			}
 			break;
 
@@ -98,17 +105,22 @@ void handle_button(void)
 			}
 			if (SUPVALVEOPEN) {						// See buttons.h
 				CLOSEVALVE(SUPVALVE);
-			} else {
-				_delay_ms(2000);
-				if (SUPBUTTONCLOSED) {
-					OPENVALVE(SUPVALVE);
-					status.opentime_SUP = 0;
-					if ((screen_value == SCRVALVES)) {
-						display(SCRVALVES);
-					}
-				}
+				screen_value = SCRVALVES;
+				display(SCRVALVES);
+				return;
 			}
-			if ((screen_value == SCRVALVES)) {
+			ten_ms_ticks = 0;
+			while (ten_ms_ticks < 200) {			// wait 2 seconds
+				_delay_ms(10);
+				if (!SUPBUTTONCLOSED) {
+					break;
+				}
+				ten_ms_ticks++;
+			}
+			if (SUPBUTTONCLOSED) {
+				OPENVALVE(SUPVALVE);
+				status.opentime_SUP = 0;
+				screen_value = SCRVALVES;
 				display(SCRVALVES);
 			}
 			break;
@@ -159,32 +171,3 @@ ISR(PORTB_PORT_vect)
 	}
 
 }
-
-/*
-uint8_t scan_buttons(void)
-{
-
-	uint8_t value;
-
-	if (~PORTB.IN & PIN2_bm) {
-		value = BLUEBUTTON;
-	} else if (~PORTB.IN & PIN3_bm) {
-		value = REDBUTTON;
-	} else if (~PORTB.IN & PIN0_bm) {
-		value = BUFFERBUTTON;
-	} else if (~PORTB.IN & PIN1_bm) {
-		value = SUPPLYBUTTON;
-		if (status.supply_button_pushed) {		// Button was already pushed
-			status.supply_button_time++;		// # secs button has been held down
-		} else {
-			status.supply_button_pushed = TRUE;
-			status.supply_button_time = 0;
-		}
-	} else {
-		value = FALSE;
-	}
-
-	return(value);
-
-}
-*/

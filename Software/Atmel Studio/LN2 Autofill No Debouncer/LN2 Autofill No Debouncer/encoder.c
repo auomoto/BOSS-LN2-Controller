@@ -315,6 +315,7 @@ void handle_encoder(void)
 		PORTC.INTFLAGS = PIN1_bm;			// Clear interrupt flag
 		encoder_sensed = FALSE;
 	}
+
 }
 
 /*----------------------------------------------------------------------
@@ -328,11 +329,7 @@ void init_ENCODER(void)
 {
 	
 	// Rotary Encoder
-//	PORTC.PIN2CTRL = PORT_PULLUPEN_bm | PORT_ISC_FALLING_gc;	// ENCA
-//	PORTC.PIN2CTRL = PORT_PULLUPEN_bm | PORT_ISC_BOTHEDGES_gc;	// ENCA
 	PORTC.PIN2CTRL = PORT_ISC_BOTHEDGES_gc;	// ENCA
-//	PORTC.PIN3CTRL = PORT_PULLUPEN_bm;							// ENCB
-//	PORTC.PIN1CTRL = PORT_PULLUPEN_bm | PORT_ISC_FALLING_gc;	// PUSH
 	PORTC.PIN1CTRL = PORT_ISC_FALLING_gc;	// PUSH
 }
 
@@ -372,20 +369,10 @@ Interrupt routine for encoder rotation or pushbutton.
 ----------------------------------------------------------------------*/
 ISR(PORTC_PORT_vect)
 {
+
 	if (PORTC.INTFLAGS & PIN1_bm) {			// Encoder pushbutton
-//		PORTC.INTFLAGS = PIN1_bm;			// Clear interrupt flag
 		encoder_sensed = ENCODERBUTTON;
 	} else if (PORTC.INTFLAGS & PIN2_bm) {	// Encoder rotary
-//		PORTC.INTFLAGS = PIN2_bm;			// Clear interrupt flag
-/*
-		if (PORTC.IN & PIN3_bm) {			// Check ENCB state
-			encoder_value++;
-			encoder_change = 1;
-		} else {
-			encoder_value--;
-			encoder_change = -1;
-		}
-*/
 		encoder_sensed = ENCODERA;
 	}
 }

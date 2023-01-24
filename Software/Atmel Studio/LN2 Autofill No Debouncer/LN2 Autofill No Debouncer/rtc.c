@@ -15,7 +15,7 @@ void handle_hour(void)
 
 	hour_flag = FALSE;
 
-	if (BIGTANK) {
+	if (BIGTANK) {					// Autofill buffer dewar
 		status.next_buftank_fill--;
 		if (status.next_buftank_fill == 0) {
 			if (BUFTHERMWARM) {
