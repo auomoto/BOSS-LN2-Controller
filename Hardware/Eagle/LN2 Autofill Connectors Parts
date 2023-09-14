@@ -1,0 +1,63 @@
+Partlist
+
+Exported from LN2 Autofill Connectors.sch at 4/13/2023 11:33 AM
+
+EAGLE Version 9.6.2 Copyright (c) 1988-2020 Autodesk, Inc.
+
+Assembly variant: 
+
+Part     Value             Device                 Package            Library  Sheet
+
+C1       0.1uF             C-USC0805              C0805              AUmlib   1
+D1       GF1               GF1                    SMA-DO214AC        AUmlib   1
+D2       GF1               GF1                    SMA-DO214AC        AUmlib   1
+D3       GF1               GF1                    SMA-DO214AC        AUmlib   1
+D4       GF1               GF1                    SMA-DO214AC        AUmlib   1
+J1       T4040034031-000   T4040034031-000        TE_T4040034031-000 AUmlib   1
+J2       T4040034031-000   T4040034031-000        TE_T4040034031-000 AUmlib   1
+J3       T4040034031-000   T4040034031-000        TE_T4040034031-000 AUmlib   1
+J4       T4040034031-000   T4040034031-000        TE_T4040034031-000 AUmlib   1
+J5       T4041037031-000   T4041037031-000        TE_T4041037031-000 AUmlib   1
+J6       T4041037031-000   T4041037031-000        TE_T4041037031-000 AUmlib   1
+J7       T4041037031-000   T4041037031-000        TE_T4041037031-000 AUmlib   1
+J8       T4041037031-000   T4041037031-000        TE_T4041037031-000 AUmlib   1
+JP1                        PINHD-1X20             1X20               AUmlib   1
+JP2      MOLEX 53822112022 PINHD-1X2MOLEX-02-VERT MOLEX-02-VERT      AUmlib   1
+JP3      MOLEX 53822112022 PINHD-1X2MOLEX-02-VERT MOLEX-02-VERT      AUmlib   1
+Q1       RTR030N05HZG      MOSFET-NREFLOW         SOT23              AUmlib   1
+Q2       RTR030N05HZG      MOSFET-NREFLOW         SOT23              AUmlib   1
+Q3       RTR030N05HZG      MOSFET-NREFLOW         SOT23              AUmlib   1
+Q4       RTR030N05HZG      MOSFET-NREFLOW         SOT23              AUmlib   1
+R1       10K               R-US_R0805             R0805              AUmlib   1
+R2       10K               R-US_R0805             R0805              AUmlib   1
+R3       10K               R-US_R0805             R0805              AUmlib   1
+R4       10K               R-US_R0805             R0805              AUmlib   1
+R5       10K               R-US_R0805             R0805              AUmlib   1
+R6       10K               R-US_R0805             R0805              AUmlib   1
+R7       10K               R-US_R0805             R0805              AUmlib   1
+R8       10K               R-US_R0805             R0805              AUmlib   1
+R9       9.09K             R-US_R0805             R0805              AUmlib   1
+R10      9.09K             R-US_R0805             R0805              AUmlib   1
+R11      9.09K             R-US_R0805             R0805              AUmlib   1
+R12      9.09K             R-US_R0805             R0805              AUmlib   1
+R13      56K               R-US_R0805             R0805              AUmlib   1
+R14      56K               R-US_R0805             R0805              AUmlib   1
+R15      56K               R-US_R0805             R0805              AUmlib   1
+R16      56K               R-US_R0805             R0805              AUmlib   1
+R17      4.7K              R-US_R0805             R0805              AUmlib   1
+R18      4.7K              R-US_R0805             R0805              AUmlib   1
+R19      4.7K              R-US_R0805             R0805              AUmlib   1
+R20      4.7K              R-US_R0805             R0805              AUmlib   1
+R21      270R              R-US_R0805             R0805              AUmlib   1
+R22      270R              R-US_R0805             R0805              AUmlib   1
+R23      270R              R-US_R0805             R0805              AUmlib   1
+R24      270R              R-US_R0805             R0805              AUmlib   1
+R25      100K              R-US_R0805             R0805              AUmlib   1
+R26      100K              R-US_R0805             R0805              AUmlib   1
+R27      100K              R-US_R0805             R0805              AUmlib   1
+R28      100K              R-US_R0805             R0805              AUmlib   1
+R29      1.5K              R-US_R0805             R0805              AUmlib   1
+R30      1.5K              R-US_R0805             R0805              AUmlib   1
+R31      1.5K              R-US_R0805             R0805              AUmlib   1
+R32      1.5K              R-US_R0805             R0805              AUmlib   1
+U1       LMV339            LM339SOIC-14           SOIC127P599X175-14 AUmlib   1
